@@ -40,6 +40,10 @@ private slots:
 
     void on_actionSalvar_Projeto_triggered();
 
+    void on_actionExportar_Projeto_triggered();
+
+    void on_actionNovo_Projeto_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -17,9 +17,9 @@ using namespace std;
 FiguraGeometrica *fig;
 Plotter::Plotter(QWidget *parent) : QWidget(parent)
 {
-    x=10;
-    y=10;
-    z=10;
+    x=30;
+    y=30;
+    z=30;
     vz=0;
     raioEsfera=1;
     DimX=1;
@@ -29,11 +29,10 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
     Ry=1;
     Rz=1;
     r=1;
-    g=0;
-    b=0;
+    g=1;
+    b=1;
     matriz= new Sculptor(x,y,z);
     matriz->setColor(r,g,b,1);
-    // setMouseTracking(true);
     putvoxel = true;
     cutvoxel = false;
     putbox = false;
@@ -334,6 +333,12 @@ void Plotter::mudarParaCutellipsoid()
     cutellipsoid = true;
 }
 
+void Plotter::abrirNoMeshlab()
+{
+    matriz->writeOFF("arquivo.off");
+    system("meshlab arquivo.off");
+}
+
 void Plotter::visibilidadeDaGrade(bool p)
 {
     grade=p;
@@ -416,22 +421,25 @@ void Plotter::abrirProjeto(string arquivo)
     {
         fig[i]->draw(*matriz);
     }
-    repaint();
 
+    repaint();
 }
 
 int Plotter::getDx()
 {
     return x;
 }
+
 int Plotter::getDy()
 {
     return y;
 }
+
 int Plotter::getDz()
 {
     return z;
 }
+
 void Plotter::salvarProjeto(string arquivo)
 {
     ofstream fout;
@@ -457,5 +465,10 @@ void Plotter::salvarProjeto(string arquivo)
         }
     }
     fout.close();
-    AbrirProjeto((string)arquivo);
+}
+
+void Plotter::exportarProjeto(string arquivo)
+{
+    //AbrirProjeto((string)arquivo);
+    matriz->writeOFF(arquivo);
 }

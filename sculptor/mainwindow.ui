@@ -14,26 +14,13 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="botaoNew">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>41</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>New</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="botaoCores">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>590</x>
       <y>430</y>
       <width>111</width>
-      <height>111</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
@@ -50,26 +37,13 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="l">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>10</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="segmentStyle">
-     <enum>QLCDNumber::Flat</enum>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>130</x>
       <y>410</y>
       <width>451</width>
-      <height>131</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="title">
@@ -79,60 +53,20 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>40</y>
        <width>431</width>
-       <height>91</height>
+       <height>41</height>
       </rect>
      </property>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>X</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QSlider" name="horizontalSlider_7">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLCDNumber" name="lcdNumber_4"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_9">
-        <property name="text">
-         <string>Y</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QSlider" name="horizontalSlider_8">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QLCDNumber" name="lcdNumber_5">
-        <property name="font">
-         <font>
-          <kerning>true</kerning>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
        <widget class="QLabel" name="label_10">
         <property name="text">
          <string>Z</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item>
        <widget class="QSlider" name="sliderPlanoZ">
         <property name="maximum">
          <number>9</number>
@@ -142,10 +76,10 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="2">
+      <item>
        <widget class="QLCDNumber" name="lcdPlanoZ">
         <property name="frameShape">
-         <enum>QFrame::Box</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Plain</enum>
@@ -186,7 +120,7 @@
        <property name="title">
         <string>Esfera</string>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -256,6 +190,9 @@
            <property name="segmentStyle">
             <enum>QLCDNumber::Flat</enum>
            </property>
+           <property name="value" stdset="0">
+            <double>1.000000000000000</double>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -267,6 +204,12 @@
          </item>
          <item row="0" column="1">
           <widget class="QSlider" name="SliderRx">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>30</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -274,6 +217,12 @@
          </item>
          <item row="1" column="1">
           <widget class="QSlider" name="SliderRy">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>30</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -288,6 +237,12 @@
          </item>
          <item row="2" column="1">
           <widget class="QSlider" name="SliderRz">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>30</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -314,6 +269,9 @@
            <property name="segmentStyle">
             <enum>QLCDNumber::Flat</enum>
            </property>
+           <property name="value" stdset="0">
+            <double>1.000000000000000</double>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -329,6 +287,9 @@
            </property>
            <property name="segmentStyle">
             <enum>QLCDNumber::Flat</enum>
+           </property>
+           <property name="value" stdset="0">
+            <double>1.000000000000000</double>
            </property>
           </widget>
          </item>
@@ -363,6 +324,9 @@
            <property name="minimum">
             <number>1</number>
            </property>
+           <property name="maximum">
+            <number>30</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -389,6 +353,9 @@
            <property name="segmentStyle">
             <enum>QLCDNumber::Flat</enum>
            </property>
+           <property name="value" stdset="0">
+            <double>1.000000000000000</double>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -412,12 +379,18 @@
            <property name="segmentStyle">
             <enum>QLCDNumber::Flat</enum>
            </property>
+           <property name="value" stdset="0">
+            <double>1.000000000000000</double>
+           </property>
           </widget>
          </item>
          <item row="0" column="1">
           <widget class="QSlider" name="SliderDimX">
            <property name="minimum">
             <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>30</number>
            </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -438,12 +411,18 @@
            <property name="segmentStyle">
             <enum>QLCDNumber::Flat</enum>
            </property>
+           <property name="value" stdset="0">
+            <double>1.000000000000000</double>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
           <widget class="QSlider" name="SliderDimZ">
            <property name="minimum">
             <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>30</number>
            </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -459,7 +438,7 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>590</x>
       <y>410</y>
       <width>67</width>
       <height>17</height>
@@ -594,14 +573,14 @@
      <rect>
       <x>10</x>
       <y>410</y>
-      <width>191</width>
+      <width>101</width>
       <height>91</height>
      </rect>
     </property>
     <property name="title">
      <string>GroupBox</string>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -673,12 +652,12 @@
      <string>Opções</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>710</x>
       <y>430</y>
-      <width>181</width>
+      <width>261</width>
       <height>111</height>
      </rect>
     </property>
@@ -695,6 +674,9 @@
        <property name="maximum">
         <number>255</number>
        </property>
+       <property name="value">
+        <number>255</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -707,20 +689,26 @@
        </property>
       </widget>
      </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_16">
+       <property name="text">
+        <string>B</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="1">
       <widget class="QSlider" name="sliderG">
        <property name="maximum">
         <number>255</number>
        </property>
+       <property name="value">
+        <number>255</number>
+       </property>
+       <property name="sliderPosition">
+        <number>255</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_16">
-       <property name="text">
-        <string>B</string>
        </property>
       </widget>
      </item>
@@ -729,39 +717,80 @@
        <property name="maximum">
         <number>255</number>
        </property>
+       <property name="value">
+        <number>255</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
+     <item row="2" column="2">
+      <widget class="QLCDNumber" name="lcdNumber_3">
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="segmentStyle">
+        <enum>QLCDNumber::Flat</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLCDNumber" name="lcdNumber_2">
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="segmentStyle">
+        <enum>QLCDNumber::Flat</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLCDNumber" name="lcdNumber">
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="segmentStyle">
+        <enum>QLCDNumber::Flat</enum>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="Button_MeshLab">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MeshLab</string>
+    </property>
+   </widget>
+   <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>groupBox_4</zorder>
-   <zorder>botaoNew</zorder>
    <zorder>botaoCores</zorder>
-   <zorder>lcdNumber_4</zorder>
-   <zorder>lcdNumber_5</zorder>
-   <zorder>lcdPlanoZ</zorder>
-   <zorder>horizontalSlider_7</zorder>
-   <zorder>horizontalSlider_8</zorder>
-   <zorder>sliderPlanoZ</zorder>
-   <zorder>label_9</zorder>
-   <zorder>label_10</zorder>
    <zorder>widget</zorder>
-   <zorder>l</zorder>
    <zorder>checkBox</zorder>
    <zorder>label_13</zorder>
-   <zorder>sliderR</zorder>
-   <zorder>sliderG</zorder>
-   <zorder>sliderB</zorder>
-   <zorder>label_14</zorder>
-   <zorder>label_15</zorder>
-   <zorder>label_16</zorder>
-   <zorder>label_3</zorder>
    <zorder>groupBox_5</zorder>
    <zorder>groupBox_6</zorder>
    <zorder>label_17</zorder>
+   <zorder>Button_MeshLab</zorder>
+   <zorder>layoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -776,8 +805,10 @@
     <property name="title">
      <string>MENU</string>
     </property>
+    <addaction name="actionNovo_Projeto"/>
     <addaction name="actionAbrir_Projeto"/>
     <addaction name="actionSalvar_Projeto"/>
+    <addaction name="actionExportar_Projeto"/>
    </widget>
    <addaction name="menuMENU"/>
   </widget>
@@ -804,6 +835,19 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionExportar_Projeto">
+   <property name="text">
+    <string>Exportar Projeto</string>
+   </property>
+  </action>
+  <action name="actionNovo_Projeto">
+   <property name="text">
+    <string>Novo Projeto</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
  </widget>

@@ -44,6 +44,7 @@ public:
     //friend class Sculptor;
     void abrirProjeto(string arquivo);
     void salvarProjeto(string arquivo);
+    void exportarProjeto(string arquivo);
 signals:
     void mouseX(int);
     void mouseY(int);
@@ -56,6 +57,7 @@ public slots:
     void mudarParaCutsphere();
     void mudarParaPutellipsoid();
     void mudarParaCutellipsoid();
+    void abrirNoMeshlab();
 };
 
 #endif // PLOTTER_H

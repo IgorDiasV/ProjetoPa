@@ -10,13 +10,15 @@
 #include <QFileDialog>
 #include <string>
 #include <string.h>
+#include "abrirprojeto.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     this->showMaximized();
-    connect(ui->botaoNew,&QPushButton::clicked,this,&MainWindow::novoProjeto);
+    //connect(ui->botaoNew,&QPushButton::clicked,this,&MainWindow::novoProjeto);
     connect(ui->botaoCores,&QPushButton::clicked,this,&MainWindow::cores);
 
     /* *******************  para esfera  ************************ */
@@ -61,16 +63,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     /* ************************************************************************** */
     connect(ui->checkBox,&QCheckBox::stateChanged,this,&MainWindow::mudarVisibilidade);
-    // connect(ui->checkBox,SIGNAL(stateChanged),this,SLOT(mudarVisibilidade));
-    // qDebug()<<ui->checkBox->isTristate();
-    //ui->botaoCores->setStyleSheet("QPushButton {background-color: rgb(255,255,0)}" );
-    //;
-    //   ui->botaoCores->setStyleSheet("QPushButton:hover {background-color: rgb(255,255,0)}");
-    /* ********************************* Cores ********************************** */
-    /*connect(ui->sliderR,SIGNAL(valueChanged),this,SLOT(corSlider()));
-    connect(ui->sliderG,SIGNAL(valueChanged(int)),this,SLOT(corSlider));
-    connect(ui->sliderB,SIGNAL(valueChanged(int)),this,SLOT(corSlider));
-    */
+
+    /*******************************************************************/
+    connect(ui->Button_MeshLab, &QPushButton::clicked, ui->widget, &Plotter::abrirNoMeshlab);
+
     connect(ui->sliderR,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
     connect(ui->sliderG,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
     connect(ui->sliderB,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
@@ -84,7 +80,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Button_cutellipsoid->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
     ui->Button_putsphere->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
     ui->Button_putellipsoid->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
-    // ui->botaoCores->setStyleSheet("QPushButton:hover {border: 3px dashed black}");
 }
 
 void MainWindow:: mudarPlanoZ(int z)
@@ -131,7 +126,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+/*
 void MainWindow::novoProjeto()
 {
     DefinirSculptor janela;
@@ -145,7 +140,7 @@ void MainWindow::novoProjeto()
         ui->sliderPlanoZ->setMaximum(tz-1);
     }
 }
-
+*/
 void MainWindow::cores()
 {
     QColor p=QColorDialog::getColor(Qt::white,this,"Escolha uma cor");
@@ -170,13 +165,6 @@ void MainWindow::mudarVisibilidade()
     ui->widget->visibilidadeDaGrade(ui->checkBox->isChecked());
 }
 
-void MainWindow::on_actionAbrir_Projeto_triggered()
-{
-    QString nomeDoArquivo=QFileDialog::getOpenFileName();
-    ui->widget->abrirProjeto(nomeDoArquivo.toStdString());
-    ui->sliderPlanoZ->setMaximum(ui->widget->getDz()-1);
-}
-
 void MainWindow::corSlider()
 {
     string css="QPushButton {background-color: rgb(";
@@ -190,8 +178,49 @@ void MainWindow::corSlider()
     ui->widget->definirCor(ui->sliderR->value(),ui->sliderG->value(),ui->sliderB->value()) ;
 }
 
+void MainWindow::on_actionAbrir_Projeto_triggered()
+{
+    QString nomeDoArquivo=QFileDialog::getOpenFileName();
+    if(nomeDoArquivo!=NULL){
+        ui->widget->abrirProjeto(nomeDoArquivo.toStdString());
+    }
+    ui->sliderPlanoZ->setMaximum(ui->widget->getDz()-1);
+    ui->sliderPlanoZ->setValue(0);
+}
+
 void MainWindow::on_actionSalvar_Projeto_triggered()
 {
     QString nomeDoArquivo=QFileDialog::getSaveFileName();
-    ui->widget->salvarProjeto(nomeDoArquivo.toStdString());
+    if(nomeDoArquivo!=NULL){
+        ui->widget->salvarProjeto(nomeDoArquivo.toStdString());
+    }
+}
+
+void MainWindow::on_actionExportar_Projeto_triggered()
+{
+    QString nomeDoArquivo=QFileDialog::getSaveFileName();
+    if(nomeDoArquivo!=NULL){
+        ui->widget->exportarProjeto(nomeDoArquivo.toStdString());
+    }
+}
+
+void MainWindow::on_actionNovo_Projeto_triggered()
+{
+    DefinirSculptor janela;
+    if(janela.exec()== QDialog::Accepted)
+    {
+        tx=janela.getX();
+        ty=janela.getY();
+        tz=janela.getZ();
+        //matriz=new Sculptor(tx,ty,tz);
+        ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
+        ui->sliderPlanoZ->setMaximum(tz-1);
+        ui->sliderEsfera->setMaximum(tx);
+        ui->SliderRx->setMaximum(tx);
+        ui->SliderRy->setMaximum(tx);
+        ui->SliderRz->setMaximum(tx);
+        ui->SliderDimX->setMaximum(tx);
+        ui->SliderDimY->setMaximum(tx);
+        ui->SliderDimZ->setMaximum(tx);
+    }
 }
