@@ -1,16 +1,21 @@
 #include "sculptor.h"
-Voxel ***x;
+#include <string>
+#include <fstream>
+Voxel ***v;
 Sculptor::Sculptor(int _nx, int _ny, int _nz)
 {
-    //np=nz,nl=nx,nc=ny
-    x=new Voxel**[_nz*_nx*_ny];
+    nx=_nx;
+    ny=_ny;
+    nz=_nz;
+
+    v=new Voxel**[_nz*_nx*_ny];
 
     for(int i = 0; i < _nz; i++){
-        x[i] = new Voxel*[_nx*_ny];
+        v[i] = new Voxel*[_nx*_ny];
     }
     for(int i = 0; i < _nz; i++){
         for(int j = 0; j <_nx; j++){
-            x[i][j] = new Voxel[_ny];
+            v[i][j] = new Voxel[_ny];
         }
     }
 
@@ -19,14 +24,92 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
 Sculptor::~Sculptor()
 {
 
-    delete [] *x;
-    delete [] **x;
+    delete [] *v;
+    delete [] **v;
 }
 
-void Sculptor::setColor(float r, float g, float b, float alpha)
+void Sculptor::setColor(float r=0, float g=0, float b=1, float alpha=1)
 {
     this->r=r;
     this->g=g;
     this->b=b;
     a=alpha;
+}
+void Sculptor:: putVoxel(int x, int y, int z)
+{
+    v[z][x][y].isOn=true;
+
+}
+void Sculptor:: cutVoxel(int x, int y, int z)
+{
+    v[z][x][y].isOn=false;
+}
+void Sculptor::writeOFF(string fillename)
+{
+    int nVertices=0,nFaces=0;
+    ofstream fout;
+    fout.open("arquivo.off");
+    if(!fout.is_open())
+    {
+        exit(0);
+    }
+    for (int i=0;i<nz;i++) {
+        for (int j=0;j<nx;j++) {
+            for (int k=0;k<ny;k++) {
+                if(v[i][j][k].isOn)
+                {
+                    nVertices+=8;
+                    nFaces+=6;
+
+                }
+            }
+
+        }
+    }
+    fout<<"OFF\n"<<nVertices<<" "<<nFaces<<" 0"<<endl;
+    for (int i=0;i<nz;i++) {
+        for (int j=0;j<nx;j++) {
+            for (int k=0;k<ny;k++) {
+                if(v[i][j][k].isOn)
+                {
+                    fout<<i-0.5<<" "<<j+0.5<<" "<<k-0.5<<endl;
+                    fout<<i-0.5<<" "<<j-0.5<<" "<<k-0.5<<endl;
+                    fout<<i+0.5<<" "<<j-0.5<<" "<<k-0.5<<endl;
+                    fout<<i+0.5<<" "<<j+0.5<<" "<<k-0.5<<endl;
+                    fout<<i-0.5<<" "<<j+0.5<<" "<<k+0.5<<endl;
+                    fout<<i-0.5<<" "<<j-0.5<<" "<<k+0.5<<endl;
+                    fout<<i+0.5<<" "<<j-0.5<<" "<<k+0.5<<endl;
+                    fout<<i+0.5<<" "<<j+0.5<<" "<<k+0.5<<endl;
+
+
+                }
+            }
+
+        }
+    }
+    int a[8]={0,1,2,3,4,5,6,7};
+    for (int i=0;i<nz;i++) {
+        for (int j=0;j<nx;j++) {
+            for (int k=0;k<ny;k++) {
+                if(v[i][j][k].isOn)
+                {
+
+                    fout<<"4 "<<a[0]<<" "<<a[3]<<" "<<a[2]<<" "<<a[1]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[4]<<" "<<a[5]<<" "<<a[6]<<" "<<a[7]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[0]<<" "<<a[1]<<" "<<a[5]<<" "<<a[4]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[0]<<" "<<a[4]<<" "<<a[7]<<" "<<a[3]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[3]<<" "<<a[7]<<" "<<a[6]<<" "<<a[2]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[1]<<" "<<a[2]<<" "<<a[6]<<" "<<a[5]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
+                    for(int l=0;l<8;l++)
+                    {
+                        a[l]+=8;
+                    }
+
+
+                }
+            }
+
+        }
+    }
+   fout.close();
 }
