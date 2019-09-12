@@ -7,7 +7,7 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
     nx=_nx;
     ny=_ny;
     nz=_nz;
-
+    setColor(1,0,0,1);
     v=new Voxel**[_nz*_nx*_ny];
 
     for(int i = 0; i < _nz; i++){
@@ -38,7 +38,10 @@ void Sculptor::setColor(float r=0, float g=0, float b=1, float alpha=1)
 void Sculptor:: putVoxel(int x, int y, int z)
 {
     v[z][x][y].isOn=true;
-
+    v[z][x][y].r=r;
+    v[z][x][y].g=g;
+    v[z][x][y].b=b;
+    v[z][x][y].a=a;
 }
 void Sculptor:: cutVoxel(int x, int y, int z)
 {
