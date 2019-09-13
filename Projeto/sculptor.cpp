@@ -2,39 +2,45 @@
 #include <string>
 #include <fstream>
 Voxel ***v;
+
 Sculptor::Sculptor(int _nx, int _ny, int _nz)
 {
     nx=_nx;
     ny=_ny;
     nz=_nz;
     setColor(1,0,0,1);
-    v=new Voxel**[_nz*_nx*_ny];
+    v=new Voxel**[_nz];
 
     for(int i = 0; i < _nz; i++){
-        v[i] = new Voxel*[_nx*_ny];
+        v[i] = new Voxel*[_nx];
     }
     for(int i = 0; i < _nz; i++){
         for(int j = 0; j <_nx; j++){
             v[i][j] = new Voxel[_ny];
         }
     }
+}
+
+Sculptor::~Sculptor(){
+    for(int i = 0; i < nz; i++){
+        for(int j = 0; j < nx; j++){
+            delete [] **v;;
+        }
+    }
+    for(int i = 0; i < nz; i++){
+        v[i] = new Voxel*[nx];
+    }
+    delete v;
 
 }
 
-Sculptor::~Sculptor()
-{
-
-    delete [] *v;
-    delete [] **v;
-}
-
-void Sculptor::setColor(float r=0, float g=0, float b=1, float alpha=1)
-{
+void Sculptor::setColor(float r=0, float g=0, float b=1, float alpha=1){
     this->r=r;
     this->g=g;
     this->b=b;
     a=alpha;
 }
+
 void Sculptor:: putVoxel(int x, int y, int z)
 {
     v[z][x][y].isOn=true;
