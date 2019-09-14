@@ -35,7 +35,7 @@ Sculptor::~Sculptor(){
 
 }
 
-void Sculptor::setColor(float r=0, float g=0, float b=1, float alpha=1){
+void Sculptor::setColor(float r=0, float g=0, float b=0, float alpha=1){
     this->r=r;
     this->g=g;
     this->b=b;
@@ -83,9 +83,9 @@ void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1)
 
 void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
-    for(int i=zcenter-radius; i<zcenter+radius; i++){
-        for(int j=xcenter-radius; j<xcenter+radius; j++){
-            for(int k=ycenter-radius; k<ycenter+radius; k++){
+    for(int i=zcenter-radius; i<=zcenter+radius; i++){
+        for(int j=xcenter-radius; j<=xcenter+radius; j++){
+            for(int k=ycenter-radius; k<=ycenter+radius; k++){
                 if(pow(i-zcenter,2)+pow(j-xcenter,2)+pow(k-ycenter,2) <= pow(radius,2)){
                     v[i][j][k].isOn=true;
                     v[i][j][k].r=r;
@@ -93,6 +93,51 @@ void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
                     v[i][j][k].b=b;
                     v[i][j][k].a=a;
                 }else {
+                    v[i][j][k].isOn=false;
+                }
+            }
+        }
+    }
+}
+
+void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius)
+{
+    for(int i=zcenter-radius; i<=zcenter+radius; i++){
+        for(int j=xcenter-radius; j<=xcenter+radius; j++){
+            for(int k=ycenter-radius; k<=ycenter+radius; k++){
+                if(pow(i-zcenter,2)+pow(j-xcenter,2)+pow(k-ycenter,2) <= pow(radius,2)){
+                    v[i][j][k].isOn=false;
+                }
+            }
+        }
+    }
+}
+
+void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
+{
+    for(int i=zcenter-rz; i<=zcenter+rz; i++){
+        for(int j=xcenter-rx; j<=xcenter+rx; j++){
+            for(int k=ycenter-ry; k<=ycenter+ry; k++){
+                if(pow(i-zcenter,2)/pow(rz,2) + pow(j-xcenter,2)/pow(rx,2) + pow(k-ycenter,2)/pow(ry,2) <= 1){
+                    v[i][j][k].isOn=true;
+                    v[i][j][k].r=r;
+                    v[i][j][k].g=g;
+                    v[i][j][k].b=b;
+                    v[i][j][k].a=a;
+                }else {
+                    v[i][j][k].isOn=false;
+                }
+            }
+        }
+    }
+}
+
+void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
+{
+    for(int i=zcenter-rz; i<=zcenter+rz; i++){
+        for(int j=xcenter-rx; j<=xcenter+rx; j++){
+            for(int k=ycenter-ry; k<=ycenter+ry; k++){
+                if(pow(i-zcenter,2)/pow(rz,2) + pow(j-xcenter,2)/pow(rx,2) + pow(k-ycenter,2)/pow(ry,2) <= 1){
                     v[i][j][k].isOn=false;
                 }
             }
