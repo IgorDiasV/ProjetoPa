@@ -1,6 +1,7 @@
 #include "sculptor.h"
 #include <string>
 #include <fstream>
+#include <cmath>
 Voxel ***v;
 
 Sculptor::Sculptor(int _nx, int _ny, int _nz)
@@ -52,6 +53,51 @@ void Sculptor:: putVoxel(int x, int y, int z)
 void Sculptor:: cutVoxel(int x, int y, int z)
 {
     v[z][x][y].isOn=false;
+}
+
+void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1)
+{
+    for(int i=z0; i<z1; i++){
+        for(int j=x0; j<x1; j++){
+            for(int k=y0; k<y1; k++){
+                v[i][j][k].isOn=true;
+                v[i][j][k].r=r;
+                v[i][j][k].g=g;
+                v[i][j][k].b=b;
+                v[i][j][k].a=a;
+            }
+        }
+    }
+}
+
+void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1)
+{
+    for(int i=z0; i<z1; i++){
+        for(int j=x0; j<x1; j++){
+            for(int k=y0; k<y1; k++){
+                v[i][j][k].isOn=false;
+            }
+        }
+    }
+}
+
+void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
+{
+    for(int i=zcenter-radius; i<zcenter+radius; i++){
+        for(int j=xcenter-radius; j<xcenter+radius; j++){
+            for(int k=ycenter-radius; k<ycenter+radius; k++){
+                if(pow(i-zcenter,2)+pow(j-xcenter,2)+pow(k-ycenter,2) <= pow(radius,2)){
+                    v[i][j][k].isOn=true;
+                    v[i][j][k].r=r;
+                    v[i][j][k].g=g;
+                    v[i][j][k].b=b;
+                    v[i][j][k].a=a;
+                }else {
+                    v[i][j][k].isOn=false;
+                }
+            }
+        }
+    }
 }
 void Sculptor::writeOFF(string fillename)
 {
