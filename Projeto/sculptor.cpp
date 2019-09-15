@@ -25,11 +25,11 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
 Sculptor::~Sculptor(){
     for(int i = 0; i < nz; i++){
         for(int j = 0; j < nx; j++){
-            delete [] **v;;
+            delete [] **v;
         }
     }
     for(int i = 0; i < nz; i++){
-        v[i] = new Voxel*[nx];
+        delete [] *v;
     }
     delete v;
 
@@ -180,8 +180,6 @@ void Sculptor::writeOFF(string fillename)
                     fout<<i-0.5<<" "<<j-0.5<<" "<<k+0.5<<endl;
                     fout<<i+0.5<<" "<<j-0.5<<" "<<k+0.5<<endl;
                     fout<<i+0.5<<" "<<j+0.5<<" "<<k+0.5<<endl;
-
-
                 }
             }
 
@@ -193,7 +191,6 @@ void Sculptor::writeOFF(string fillename)
             for (int k=0;k<ny;k++) {
                 if(v[i][j][k].isOn)
                 {
-
                     fout<<"4 "<<a[0]<<" "<<a[3]<<" "<<a[2]<<" "<<a[1]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
                     fout<<"4 "<<a[4]<<" "<<a[5]<<" "<<a[6]<<" "<<a[7]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
                     fout<<"4 "<<a[0]<<" "<<a[1]<<" "<<a[5]<<" "<<a[4]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
@@ -204,7 +201,6 @@ void Sculptor::writeOFF(string fillename)
                     {
                         a[l]+=8;
                     }
-
 
                 }
             }
