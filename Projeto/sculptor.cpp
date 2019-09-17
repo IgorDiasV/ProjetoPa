@@ -20,6 +20,13 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
             v[i][j] = new Voxel[_ny];
         }
     }
+    for(int i=0; i<nz; i++){
+        for(int j=0; j<nx; j++){
+            for(int k=0; k<ny; k++){
+                v[i][j][k].isOn = false;
+            }
+        }
+    }
 }
 
 Sculptor::~Sculptor(){
@@ -83,17 +90,15 @@ void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1)
 
 void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
-    for(int i=zcenter-radius; i<=zcenter+radius; i++){
-        for(int j=xcenter-radius; j<=xcenter+radius; j++){
-            for(int k=ycenter-radius; k<=ycenter+radius; k++){
+    for(int i=0; i<nz; i++){
+        for(int j=0; j<nx; j++){
+            for(int k=0; k<ny; k++){
                 if(pow(i-zcenter,2)+pow(j-xcenter,2)+pow(k-ycenter,2) <= pow(radius,2)){
                     v[i][j][k].isOn=true;
                     v[i][j][k].r=r;
                     v[i][j][k].g=g;
                     v[i][j][k].b=b;
                     v[i][j][k].a=a;
-                }else {
-                    v[i][j][k].isOn=false;
                 }
             }
         }
@@ -102,9 +107,9 @@ void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
 
 void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
-    for(int i=zcenter-radius; i<=zcenter+radius; i++){
-        for(int j=xcenter-radius; j<=xcenter+radius; j++){
-            for(int k=ycenter-radius; k<=ycenter+radius; k++){
+    for(int i=0; i<nz; i++){
+        for(int j=0; j<nx; j++){
+            for(int k=0; k<ny; k++){
                 if(pow(i-zcenter,2)+pow(j-xcenter,2)+pow(k-ycenter,2) <= pow(radius,2)){
                     v[i][j][k].isOn=false;
                 }
@@ -148,7 +153,7 @@ void Sculptor::writeOFF(string fillename)
 {
     int nVertices=0,nFaces=0;
     ofstream fout;
-    fout.open("arquivo.off");
+    fout.open(fillename);
     if(!fout.is_open())
     {
         exit(0);
