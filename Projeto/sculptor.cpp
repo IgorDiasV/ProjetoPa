@@ -51,7 +51,7 @@ void Sculptor::setColor(float r=0, float g=0, float b=0, float alpha=1){
 
 void Sculptor:: putVoxel(int x, int y, int z)
 {
-    if(x<nx && y<ny && z<nz){
+    if(x<nx && y<ny && z<nz && x>=0 && y>=0 && z>=0){
         v[z][x][y].isOn=true;
         v[z][x][y].r=r;
         v[z][x][y].g=g;
@@ -62,7 +62,7 @@ void Sculptor:: putVoxel(int x, int y, int z)
 
 void Sculptor:: cutVoxel(int x, int y, int z)
 {
-    if(x<nx && y<ny && z<nz){
+    if(x<nx && y<ny && z<nz && x>=0 && y>=0 && z>=0){
         v[z][x][y].isOn=false;
     }
 }
@@ -72,7 +72,7 @@ void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1)
     for(int i=z0; i<z1; i++){
         for(int j=x0; j<x1; j++){
             for(int k=y0; k<y1; k++){
-                if(j>0 && j<nx && k>0 && k<ny && i>0 && i<nz){
+                if(j>=0 && j<nx && k>=0 && k<ny && i>=0 && i<nz){
                     v[i][j][k].isOn=true;
                     v[i][j][k].r=r;
                     v[i][j][k].g=g;
@@ -89,7 +89,9 @@ void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1)
     for(int i=z0; i<z1; i++){
         for(int j=x0; j<x1; j++){
             for(int k=y0; k<y1; k++){
-                v[i][j][k].isOn=false;
+                if(j>=0 && j<nx && k>=0 && k<ny && i>=0 && i<nz){
+                    v[i][j][k].isOn=false;
+                }
             }
         }
     }
