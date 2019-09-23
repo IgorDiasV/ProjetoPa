@@ -252,7 +252,7 @@ void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
  * @param fillename - nome do arquivo
  */
 
-void Sculptor::writeOFF(string fillename)
+void Sculptor::writeOFF(char* fillename)
 {
     int nVertices=0,nFaces=0;
     ofstream fout;
