@@ -1,7 +1,9 @@
 #ifndef SCULPTOR_H
 #define SCULPTOR_H
 #include <string>
+
 using namespace std;
+
 struct Voxel {
     float r,g,b; // Colors
     float a;
@@ -23,7 +25,6 @@ public:
     void putVoxel(int x, int y, int z);
     void cutVoxel(int x, int y, int z);
     void writeOFF(char* filename);
-
 };
 
 #endif // SCULPTOR_H

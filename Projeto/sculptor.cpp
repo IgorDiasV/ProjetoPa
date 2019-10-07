@@ -110,23 +110,7 @@ void Sculptor:: cutVoxel(int x, int y, int z)
  * @param z1 - parâmetro de onde termina a produndidade da caixa
  */
 
-/*void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1)
-{
-    for(int i=z0; i<z1; i++){
-        for(int j=x0; j<x1; j++){
-            for(int k=y0; k<y1; k++){
-                if(j>=0 && j<nx && k>=0 && k<ny && i>=0 && i<nz){
-                    v[i][j][k].isOn=true;
-                    v[i][j][k].r=r;
-                    v[i][j][k].g=g;
-                    v[i][j][k].b=b;
-                    v[i][j][k].a=a;
-                }
-            }
-        }
-    }
-}
-*/
+
 /**
  * @brief Sculptor::cutBox - apaga uma caixa cujas dimensões são definidas pelos parametros abaixo
  * @param x0 - parâmetro de altura onde começa a apagar a caixa
@@ -137,19 +121,7 @@ void Sculptor:: cutVoxel(int x, int y, int z)
  * @param z1 - parâmetro de profundidade onde termina a apagar a caixa
  */
 /*
-void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1)
-{
-    for(int i=z0; i<z1; i++){
-        for(int j=x0; j<x1; j++){
-            for(int k=y0; k<y1; k++){
-                if(j>=0 && j<nx && k>=0 && k<ny && i>=0 && i<nz){
-                    v[i][j][k].isOn=false;
-                }
-            }
-        }
-    }
-}
-*/
+
 /**
  * @brief Sculptor::putSphere - desenha uma esfera tal que o centro e o raios são definidos pelos parâmetros abaixo
  * @param xcenter - parâmetro de define a altura do centro da esfera em relação a origem

@@ -3,11 +3,10 @@
 #include "figurageometrica.h"
 #include "sculptor.h"
 
-class CutVoxel:public FiguraGeometrica
-{
+class CutVoxel:public FiguraGeometrica{
+    int x, y, z;
 public:
-    CutVoxel();
-    void draw(int x,int y, int z,Sculptor &t);
+    CutVoxel(int x,int y,int z);
+    void draw(Sculptor &t);
 };
-
 #endif // CUTVOXEL_H
