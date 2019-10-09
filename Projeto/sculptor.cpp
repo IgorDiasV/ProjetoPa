@@ -129,24 +129,7 @@ void Sculptor:: cutVoxel(int x, int y, int z)
  * @param zcenter - parâmetro de define a profundidade do centro da esfera em relação a origem
  * @param radius - raio da esfera
  */
-/*
-void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
-{
-    for(int i=0; i<nz; i++){
-        for(int j=0; j<nx; j++){
-            for(int k=0; k<ny; k++){
-                if(pow(i-zcenter,2)+pow(j-xcenter,2)+pow(k-ycenter,2) <= pow(radius,2)){
-                    v[i][j][k].isOn=true;
-                    v[i][j][k].r=r;
-                    v[i][j][k].g=g;
-                    v[i][j][k].b=b;
-                    v[i][j][k].a=a;
-                }
-            }
-        }
-    }
-}
-*/
+
 /**
  * @brief Sculptor::cutSphere -apaga uma esfera de dimensões definidas pelos parâmetros abaixo
  * @param xcenter - parâmetro de define a altura do centro da esfera em relação a origem
@@ -154,20 +137,7 @@ void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
  * @param zcenter - parâmetro de define a profundidade do centro da esfera em relação a origem
  * @param radius - raio da esfera
  */
-/*
-void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius)
-{
-    for(int i=0; i<nz; i++){
-        for(int j=0; j<nx; j++){
-            for(int k=0; k<ny; k++){
-                if(pow(i-zcenter,2)+pow(j-xcenter,2)+pow(k-ycenter,2) <= pow(radius,2)){
-                    v[i][j][k].isOn=false;
-                }
-            }
-        }
-    }
-}
-*/
+
 /**
  * @brief Sculptor::putEllipsoid - desenha um elipsóide cujas dimensões são definidas pelos parâmetros abaixo
  * @param xcenter - parâmetro de define a altura do centro da esfera em relação a origem

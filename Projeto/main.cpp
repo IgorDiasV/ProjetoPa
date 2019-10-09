@@ -2,6 +2,7 @@
 #include "sculptor.h"
 #include "classes.h"
 #include <vector>
+#include "abrirprojeto.h"
 #define color(x) x/255.0
 
 using namespace std;
@@ -10,7 +11,7 @@ int main()
 {
     // [altura][profundidade][largura]
     // z x y
-    Sculptor p(20,20,20);
+   /* Sculptor p(20,20,20);
     vector<FiguraGeometrica*> fig;
 
     fig.push_back(new PutVoxel(1, 1, 1, 1, 0, 0, 1));
@@ -23,7 +24,8 @@ int main()
     }
 
     p.writeOFF("alo.off");
-    system("meshlab alo.off");
+    system("meshlab alo.off");*/
+    AbrirProjeto s("teste");
 
     return 0;
 }
