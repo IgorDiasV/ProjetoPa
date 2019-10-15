@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include <cmath>
-Voxel ***v;
+//Voxel ***v;
 
 /**
  * @brief Sculptor::Sculptor - método construtor que aloca uma matriz tridimensional de tamanho nx por ny por nz
@@ -42,14 +42,15 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
 
 Sculptor::~Sculptor(){
     for(int i = 0; i < nz; i++){
-        for(int j = 0; j < nx; j++){
-            delete [] **v;
-        }
+        delete [] **v;
     }
     for(int i = 0; i < nz; i++){
-        delete [] *v;
+        for(int j = 0; j < nx; j++){
+            delete [] *v;
+        }
     }
-    delete v;
+
+    delete []v;
 
 }
 

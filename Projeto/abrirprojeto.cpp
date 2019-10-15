@@ -56,27 +56,30 @@ AbrirProjeto::AbrirProjeto(string arquivo)
                 fig.push_back(new CutBox(x0,x1,y0,y1,z0,z1));
             }else if(comando.compare("putsphere")==0)
             {
+
                 int x0, y0, z0, raio;
                 float r, g, b, a;
                 ss>>x0>>y0>>z0>>raio>>r>>g>>b>>a;
                 fig.push_back(new PutSphere(x0,y0,z0,raio,r,g,b,a));
 
-            }else if(comando.compare("cutsphere")){
+            }else if(comando.compare("cutsphere")==0){
                 int x0, y0, z0, raio;
 
                 ss>>x0>>y0>>z0>>raio;
                 fig.push_back(new CutSphere(x0,y0,z0,raio));
-            }else if(comando.compare("putellipsoid")){
+            }else if(comando.compare("putellipsoid")==0){
+
                 int x0, y0, z0, raiox, raioy, raioz;
                 float r, g, b, a;
                 ss>>x0>>y0>>z0>>raiox>>raioy>>raioz>>r>>g>>b>>a;
                 fig.push_back(new PutEllipsoid(x0,y0,z0,raiox,raioy,raioz,r,g,b,a));
-            }else if(comando.compare("cutellipsoid")){
+            }else if(comando.compare("cutellipsoid")==0){
                 int x0, y0, z0, raiox, raioy, raioz;
                 ss>>x0>>y0>>z0>>raiox>>raioy>>raioz;
                 fig.push_back(new CutEllipsoid(x0,y0,z0,raiox,raioy,raioz));
             }
         }else {
+
             break;
         }
 
@@ -88,6 +91,6 @@ AbrirProjeto::AbrirProjeto(string arquivo)
         fig[i]->draw(p);
     }
     p.writeOFF("novo.off");
-    system("meshlab novo.off");
+   // system("meshlab novo.off");
 
 }
