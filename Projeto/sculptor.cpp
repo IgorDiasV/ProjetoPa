@@ -242,12 +242,19 @@ void Sculptor::writeOFF(char* fillename)
             for (int k=0;k<ny;k++) {
                 if(v[i][j][k].isOn)
                 {
-                    fout<<"4 "<<a[0]<<" "<<a[3]<<" "<<a[2]<<" "<<a[1]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
-                    fout<<"4 "<<a[4]<<" "<<a[5]<<" "<<a[6]<<" "<<a[7]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
+                 fout<<"4 "<<a[0]<<" "<<a[3]<<" "<<a[2]<<" "<<a[1]<<" "<<fixed<<setprecision(4)<<v[i][j][k].r<<" "<<setprecision(4)<<v[i][j][k].g<<" "<<setprecision(4)<<v[i][j][k].b<<" "<<setprecision(4)<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[4]<<" "<<a[5]<<" "<<a[6]<<" "<<a[7]<<" "<<setprecision(4)<<v[i][j][k].r<<" "<<setprecision(4)<<v[i][j][k].g<<" "<<setprecision(4)<<v[i][j][k].b<<" "<<setprecision(4)<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[0]<<" "<<a[1]<<" "<<a[5]<<" "<<a[4]<<" "<<setprecision(4)<<v[i][j][k].r<<" "<<setprecision(4)<<v[i][j][k].g<<" "<<setprecision(4)<<v[i][j][k].b<<" "<<setprecision(4)<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[0]<<" "<<a[4]<<" "<<a[7]<<" "<<a[3]<<" "<<setprecision(4)<<v[i][j][k].r<<" "<<setprecision(4)<<v[i][j][k].g<<" "<<setprecision(4)<<v[i][j][k].b<<" "<<setprecision(4)<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[3]<<" "<<a[7]<<" "<<a[6]<<" "<<a[2]<<" "<<setprecision(4)<<v[i][j][k].r<<" "<<setprecision(4)<<v[i][j][k].g<<" "<<setprecision(4)<<v[i][j][k].b<<" "<<setprecision(4)<<v[i][j][k].a<<endl;
+                    fout<<"4 "<<a[1]<<" "<<a[2]<<" "<<a[6]<<" "<<a[5]<<" "<<setprecision(4)<<v[i][j][k].r<<" "<<setprecision(4)<<v[i][j][k].g<<" "<<setprecision(4)<<v[i][j][k].b<<" "<<setprecision(4)<<v[i][j][k].a<<endl;
+
+                    /* fout<<"4 "<<a[4]<<" "<<a[5]<<" "<<a[6]<<" "<<a[7]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
                     fout<<"4 "<<a[0]<<" "<<a[1]<<" "<<a[5]<<" "<<a[4]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
                     fout<<"4 "<<a[0]<<" "<<a[4]<<" "<<a[7]<<" "<<a[3]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
                     fout<<"4 "<<a[3]<<" "<<a[7]<<" "<<a[6]<<" "<<a[2]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
                     fout<<"4 "<<a[1]<<" "<<a[2]<<" "<<a[6]<<" "<<a[5]<<" "<<v[i][j][k].r<<" "<<v[i][j][k].g<<" "<<v[i][j][k].b<<" "<<v[i][j][k].a<<endl;
+                    */
                     for(int l=0;l<8;l++)
                     {
                         a[l]+=8;
