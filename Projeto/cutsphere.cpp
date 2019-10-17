@@ -13,7 +13,7 @@ void CutSphere::draw(Sculptor &t)
     for(int i=zcenter-radius; i<=zcenter+radius; i++){
         for(int j=ycenter-radius; j<=ycenter+radius; j++){
             for(int k=xcenter-radius; k<=xcenter+radius; k++){
-                if(pow(i-zcenter,2)+pow(j-xcenter,2)+pow(k-ycenter,2) <= pow(radius,2)){
+                if(pow(i-zcenter,2)+pow(j-ycenter,2)+pow(k-xcenter,2) <= pow(radius,2)){
                     t.cutVoxel(i,j,k);
                 }
             }

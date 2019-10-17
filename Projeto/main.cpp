@@ -25,7 +25,7 @@ int main()
 
     p.writeOFF("alo.off");
     system("meshlab alo.off");*/
-    AbrirProjeto s("teste");
+    AbrirProjeto s("teste.txt");
 
     return 0;
 }

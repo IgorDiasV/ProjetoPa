@@ -26,6 +26,7 @@ AbrirProjeto::AbrirProjeto(string arquivo)
 
             stringstream ss(str);
             ss>>comando;
+            cout<<comando<<endl;
             if(comando.compare("dim")==0)
             {
 
@@ -91,6 +92,6 @@ AbrirProjeto::AbrirProjeto(string arquivo)
         fig[i]->draw(p);
     }
     p.writeOFF("novo.off");
-   // system("meshlab novo.off");
+    system("meshlab novo.off");
 
 }
