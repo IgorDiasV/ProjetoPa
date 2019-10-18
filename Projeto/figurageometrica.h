@@ -2,8 +2,7 @@
 #define FIGURAGEOMETRICA_H
 #include "sculptor.h"
 
-class FiguraGeometrica
-{
+class FiguraGeometrica{
 protected:
     float r,g,b,a;
 public:

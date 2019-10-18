@@ -1,5 +1,6 @@
 #include "cutellipsoid.h"
-#include <math.h>
+#include <cmath>
+
 CutEllipsoid::CutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
 {
     this->xcenter = xcenter;
@@ -12,7 +13,6 @@ CutEllipsoid::CutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry
 
 void CutEllipsoid::draw(Sculptor &t)
 {
-
     for(int i=zcenter-rz; i<=zcenter+rz; i++){
         for(int j=ycenter-ry; j<=ycenter+ry; j++){
             for(int k=xcenter-rx; k<=xcenter+rx; k++){

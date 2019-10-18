@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include <cmath>
-//Voxel ***v;
+Voxel ***v;
 
 /**
  * @brief Sculptor::Sculptor - método construtor que aloca uma matriz tridimensional de tamanho nx por ny por nz
@@ -42,17 +42,9 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
  */
 
 Sculptor::~Sculptor(){
-    for(int i = 0; i < nz; i++){
-        delete [] **v;
-    }
-    for(int i = 0; i < nz; i++){
-        for(int j = 0; j < nx; j++){
-            delete [] *v;
-        }
-    }
-
-    delete []v;
-
+    delete [] **v;
+    delete [] *v;
+    delete [] v;
 }
 
 /**
@@ -103,99 +95,10 @@ void Sculptor:: cutVoxel(int x, int y, int z)
 }
 
 /**
- * @brief Sculptor::putBox - desenha uma caixa cujas dimensões são definidas pelos parâmetro abaixo
- * @param x0 - parâmetro de onde começa a altura da caixa
- * @param x1 - parâmetro de onde termina a altura da caixa
- * @param y0 - parâmetro de onde começa a largura da caixa
- * @param y1 - parâmetro de onde termina a largura da caixa
- * @param z0 - parâmetro de onde começa a profundidade da caixa
- * @param z1 - parâmetro de onde termina a produndidade da caixa
- */
-
-
-/**
- * @brief Sculptor::cutBox - apaga uma caixa cujas dimensões são definidas pelos parametros abaixo
- * @param x0 - parâmetro de altura onde começa a apagar a caixa
- * @param x1 - parâmetro de altura onde termina de apagar a apagar a caixa
- * @param y0 - parâmetro de largura onde começa a apagar a caixa
- * @param y1 - parâmetro de largura onde termina a apagar a caixa
- * @param z0 - parâmetro de profundidade onde começa a apagar a caixa
- * @param z1 - parâmetro de profundidade onde termina a apagar a caixa
- */
-/*
-
-/**
- * @brief Sculptor::putSphere - desenha uma esfera tal que o centro e o raios são definidos pelos parâmetros abaixo
- * @param xcenter - parâmetro de define a altura do centro da esfera em relação a origem
- * @param ycenter - parâmetro de define a largura do centro da esfera em relação a origem
- * @param zcenter - parâmetro de define a profundidade do centro da esfera em relação a origem
- * @param radius - raio da esfera
- */
-
-/**
- * @brief Sculptor::cutSphere -apaga uma esfera de dimensões definidas pelos parâmetros abaixo
- * @param xcenter - parâmetro de define a altura do centro da esfera em relação a origem
- * @param ycenter - parâmetro de define a largura do centro da esfera em relação a origem
- * @param zcenter - parâmetro de define a profundidade do centro da esfera em relação a origem
- * @param radius - raio da esfera
- */
-
-/**
- * @brief Sculptor::putEllipsoid - desenha um elipsóide cujas dimensões são definidas pelos parâmetros abaixo
- * @param xcenter - parâmetro de define a altura do centro da esfera em relação a origem
- * @param ycenter - parâmetro de define a largura do centro da esfera em relação a origem
- * @param zcenter - parâmetro de define a profundidade do centro da esfera em relação a ori
- * @param rx - raio do elipsóide em relação a altura
- * @param ry - raio do elipsóide em relação a largura
- * @param rz - raio do elipsóide em relação a profundidade
- */
-/*
-void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
-{
-    for(int i=0; i<nz; i++){
-        for(int j=0; j<nx; j++){
-            for(int k=0; k<ny; k++){
-                if(pow(i-zcenter,2)/pow(rz,2) + pow(j-xcenter,2)/pow(rx,2) + pow(k-ycenter,2)/pow(ry,2) <= 1){
-                    v[i][j][k].isOn=true;
-                    v[i][j][k].r=r;
-                    v[i][j][k].g=g;
-                    v[i][j][k].b=b;
-                    v[i][j][k].a=a;
-                }
-            }
-        }
-    }
-}
-*/
-/**
- * @brief Sculptor::cutEllipsoid - apaga um elipsóide cujas dimensões são definidas pelos parâmetros abaixo
- * @param xcenter - parâmetro de define a altura do centro da esfera em relação a origem
- * @param ycenter - parâmetro de define a largura do centro da esfera em relação a origem
- * @param zcenter - parâmetro de define a profundidade do centro da esfera em relação a ori
- * @param rx - raio do elipsóide em relação a altura
- * @param ry - raio do elipsóide em relação a largura
- * @param rz - raio do elipsóide em relação a profundidade
- */
-/*
-void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
-{
-    for(int i=0; i<nz; i++){
-        for(int j=0; j<nx; j++){
-            for(int k=0; k<ny; k++){
-                if(pow(i-zcenter,2)/pow(rz,2) + pow(j-xcenter,2)/pow(rx,2) + pow(k-ycenter,2)/pow(ry,2) <= 1){
-                    v[i][j][k].isOn=false;
-                }
-            }
-        }
-    }
-}
-*/
-/**
  * @brief Sculptor::writeOFF - método que escreve todas informações de vertice, faces, cor necessários para um arquivo .off,
  * que será lido pelo programa
  * @param fillename - nome do arquivo
  */
-
 void Sculptor::writeOFF(char* fillename)
 {
     int nVertices=0,nFaces=0;
@@ -212,10 +115,8 @@ void Sculptor::writeOFF(char* fillename)
                 {
                     nVertices+=8;
                     nFaces+=6;
-
                 }
             }
-
         }
     }
     fout<<"OFF\n"<<nVertices<<" "<<nFaces<<" 0"<<endl;

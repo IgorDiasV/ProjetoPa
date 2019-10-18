@@ -1,5 +1,6 @@
 #include "cutsphere.h"
-#include "math.h"
+#include <cmath>
+
 CutSphere::CutSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
     this->xcenter=xcenter;

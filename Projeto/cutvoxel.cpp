@@ -1,4 +1,5 @@
 #include "cutvoxel.h"
+#include "sculptor.h"
 
 CutVoxel::CutVoxel(int x,int y,int z)
 {

@@ -1,5 +1,5 @@
 #include "putsphere.h"
-#include "sculptor.h"
+//#include "sculptor.h"
 #include <cmath>
 
 PutSphere::PutSphere(int xcenter, int ycenter, int zcenter, int radius, float r, float g, float b, float a)
