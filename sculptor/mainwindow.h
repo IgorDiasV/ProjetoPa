@@ -16,6 +16,7 @@ public:
     ~MainWindow();
 public slots:
  void novoProjeto();
+ void cores();
 
 private:
     Ui::MainWindow *ui;
