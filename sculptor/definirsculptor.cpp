@@ -1,25 +1,27 @@
 #include "definirsculptor.h"
 #include "ui_definirsculptor.h"
-#include "sculptor.h"
+
 DefinirSculptor::DefinirSculptor(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DefinirSculptor)
 {
     ui->setupUi(this);
-    connect(ui->botaoCancelar,&QPushButton::clicked,this,&DefinirSculptor::done);
-    connect(ui->botaoSalvar,&QPushButton::clicked,this,&DefinirSculptor::salvar);
+}
+int DefinirSculptor::getX()
+{
+    return ui->spinX->value();
 }
 
+int DefinirSculptor::getY()
+{
+    return ui->spinY->value();
+}
+
+int DefinirSculptor::getZ()
+{
+    return ui->spinZ->value();
+}
 DefinirSculptor::~DefinirSculptor()
 {
     delete ui;
-}
-
-void DefinirSculptor::salvar()
-{
-    int x=ui->spinX->value();
-    int y=ui->spinY->value();
-    int z=ui->spinZ->value();
-    Sculptor(x,y,z);
-    this->done(0);
 }

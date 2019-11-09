@@ -9,15 +9,15 @@ class DefinirSculptor;
 
 class DefinirSculptor : public QDialog
 {
-
     Q_OBJECT
 
 public:
-    explicit DefinirSculptor(QWidget *parent = nullptr);
-
+    explicit DefinirSculptor(QWidget *parent = 0);
+    int getX();
+    int getY();
+    int getZ();
     ~DefinirSculptor();
-public slots:
-    void salvar();
+
 private:
     Ui::DefinirSculptor *ui;
 };

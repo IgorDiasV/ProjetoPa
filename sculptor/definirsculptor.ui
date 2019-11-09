@@ -6,95 +6,89 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>218</width>
-    <height>178</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>9</y>
-     <width>188</width>
-     <height>158</height>
+     <x>30</x>
+     <y>240</y>
+     <width>341</width>
+     <height>32</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>70</y>
+     <width>131</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Tamanho da matriz</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Tamanho da matriz</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>X</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSpinBox" name="spinX"/>
-          </item>
-         </layout>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>X</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Y</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSpinBox" name="spinY"/>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Z</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSpinBox" name="spinZ"/>
-          </item>
-         </layout>
+         <widget class="QSpinBox" name="spinX"/>
         </item>
        </layout>
       </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QPushButton" name="botaoSalvar">
-        <property name="text">
-         <string>Salvar</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Y</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinY"/>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="botaoCancelar">
-        <property name="text">
-         <string>Cancelar</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Z</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinZ"/>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -102,5 +96,38 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DefinirSculptor</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DefinirSculptor</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

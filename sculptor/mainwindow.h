@@ -10,13 +10,15 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    int tx,ty,tz;
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 public slots:
- void novoProjeto();
- void cores();
+    void novoProjeto();
+    void cores();
+
 
 private:
     Ui::MainWindow *ui;

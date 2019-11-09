@@ -3,6 +3,8 @@
 #include <definirsculptor.h>
 #include <QColorDialog>
 #include <QColor>
+#include <QDialog>
+#include <QDebug>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -11,6 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
     this->showMaximized();
     connect(ui->botaoNew,&QPushButton::clicked,this,&MainWindow::novoProjeto);
     connect(ui->botaoCores,&QPushButton::clicked,this,&MainWindow::cores);
+    //connect(ui->sliderEsfera,&QAbstractSlider ::valueChanged,ui->lcdEsfera,&QLCDNumber::display);
+   // connect(ui->sliderEsfera,SIGNAL(valueChanged(int)),ui->lcdEsfera,SLOT(display(int)));
+    //connect(ui->sliderEsfera,SIGNAL(valueChanged(int)),this,SLOT(raioEsfera(int)));
+    connect(ui->sliderEsfera,SIGNAL(valueChanged(int)),ui->spinEsfera,SLOT(setValue(int)));
+    connect(ui->spinEsfera,SIGNAL(valueChanged(int)),ui->sliderEsfera,SLOT(setValue(int)));
     //ui->lcdNumber->display(x);
 }
 
@@ -21,7 +28,14 @@ MainWindow::~MainWindow()
 void MainWindow::novoProjeto()
 {
     DefinirSculptor janela;
-    janela.exec();
+    if(janela.exec()== QDialog::Accepted)
+    {
+       tx=janela.getX();
+       ty=janela.getY();
+       tz=janela.getZ();
+
+    }
+
 
 }
 
@@ -30,3 +44,4 @@ void MainWindow::cores()
    QColor p=QColorDialog::getColor(Qt::white,this,"Escolha uma cor");
    // QColor p=QColorDialog::getColor();
 }
+
