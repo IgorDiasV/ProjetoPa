@@ -5,10 +5,14 @@
 #include <QColor>
 #include <QDialog>
 #include <QDebug>
+#include <plotter.h>
+#include "sculptor.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
     this->showMaximized();
     connect(ui->botaoNew,&QPushButton::clicked,this,&MainWindow::novoProjeto);
@@ -19,6 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->sliderEsfera,SIGNAL(valueChanged(int)),ui->spinEsfera,SLOT(setValue(int)));
     connect(ui->spinEsfera,SIGNAL(valueChanged(int)),ui->sliderEsfera,SLOT(setValue(int)));
     //ui->lcdNumber->display(x);
+    connect(ui->widget,SIGNAL(mouseX(int)),ui->lcdX,SLOT(display(int)));
+    connect(ui->widget,SIGNAL(mouseY(int)),ui->lcdY,SLOT(display(int)));
+
 }
 
 MainWindow::~MainWindow()
@@ -34,7 +41,10 @@ void MainWindow::novoProjeto()
        ty=janela.getY();
        tz=janela.getZ();
 
+       ui->widget->mudarTamanho(tx,ty,tz);
     }
+
+
 
 
 }

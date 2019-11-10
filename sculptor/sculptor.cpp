@@ -12,6 +12,11 @@ Voxel ***v;
  * @param _nz - parêmetro que se refere a profundidade
  */
 
+Sculptor::Sculptor()
+{
+
+}
+
 Sculptor::Sculptor(int _nx, int _ny, int _nz)
 {
     nx=_nx;

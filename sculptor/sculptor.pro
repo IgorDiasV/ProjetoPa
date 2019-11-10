@@ -30,15 +30,16 @@ SOURCES += \
         cutellipsoid.cpp \
         cutsphere.cpp \
         cutvoxel.cpp \
-        definirsculptor.cpp \
         figurageometrica.cpp \
         main.cpp \
         mainwindow.cpp \
+    plotter.cpp \
         putbox.cpp \
         putellipsoid.cpp \
         putsphere.cpp \
         putvoxel.cpp \
-        sculptor.cpp
+        sculptor.cpp \
+    definirsculptor.cpp
 
 HEADERS += \
         abrirprojeto.h \
@@ -47,18 +48,19 @@ HEADERS += \
         cutellipsoid.h \
         cutsphere.h \
         cutvoxel.h \
-        definirsculptor.h \
         figurageometrica.h \
         mainwindow.h \
+    plotter.h \
         putbox.h \
         putellipsoid.h \
         putsphere.h \
         putvoxel.h \
-        sculptor.h
+        sculptor.h \
+    definirsculptor.h
 
 FORMS += \
-        definirsculptor.ui \
-        mainwindow.ui
+        mainwindow.ui \
+    definirsculptor.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
