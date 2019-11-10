@@ -25,12 +25,12 @@ void Plotter::paintEvent(QPaintEvent *event)
     //painter.setPen(pen);
     painter.setBrush(brush);
 
-    painter.drawRect(px*(width()/x),py*(height()/y),width()/x,height()/y);
-    for(int i=0;i<width();i+=width()/x)
+    painter.drawRect(px*(width()/x),py*(height()/y),width()/x,height()/y); // desenhar o contorno do widget
+    for(int i=0;i<width();i+=width()/x) //desenhas as linhas verticais
     {
         painter.drawLine(i,0,i,height());
     }
-    for(int i=0;i<height();i+=height()/y)
+    for(int i=0;i<height();i+=height()/y) //desenha as linhas horizontais
     {
         painter.drawLine(0,i,width(),i);
     }
@@ -38,8 +38,8 @@ void Plotter::paintEvent(QPaintEvent *event)
 }
 void Plotter::mousePressEvent(QMouseEvent *event)
 {
-    px=ceil((event->x())/(width()/x));
-    py=ceil((event->y())/(height()/y));
+    px=(event->x())/(width()/x);   //calcula em que quadrado na horizontal se encontra o mouse
+    py=(event->y())/(height()/y); //calcula em que quadrado na vertica se encontra o mouse
     emit mouseX(px);
     emit mouseY(py);
     repaint();
@@ -58,10 +58,11 @@ void Plotter::mudarTamanho(int tx, int ty, int tz)
 void Plotter::mouseMoveEvent(QMouseEvent *event)
 {
     //int px=ceil((width()-1)/(width()-event->x()));
-    px=ceil((event->x())/(width()/x));
-    py=ceil((event->y())/(height()/y));
-
+    px=(event->x())/(width()/x); //calcula em que quadrado na horizontal se encontra o mouse
+    py=(event->y())/(height()/y); //calcula em que quadrado na vertica se encontra o mouse
     emit mouseX(px);
+
+
     //emit mouseX(event->x());
 
     emit mouseY(py);

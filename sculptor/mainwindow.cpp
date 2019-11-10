@@ -23,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->sliderEsfera,SIGNAL(valueChanged(int)),ui->spinEsfera,SLOT(setValue(int)));
     connect(ui->spinEsfera,SIGNAL(valueChanged(int)),ui->sliderEsfera,SLOT(setValue(int)));
     //ui->lcdNumber->display(x);
-    connect(ui->widget,SIGNAL(mouseX(int)),ui->lcdX,SLOT(display(int)));
-    connect(ui->widget,SIGNAL(mouseY(int)),ui->lcdY,SLOT(display(int)));
+    connect(ui->widget,SIGNAL(mouseX(int)),ui->lcdX,SLOT(display(int))); //usado apenas para desenvolver, pode ser removido
+    connect(ui->widget,SIGNAL(mouseY(int)),ui->lcdY,SLOT(display(int))); //usado apenas para desenvolver, pode ser removido
 
 }
 
@@ -41,7 +41,7 @@ void MainWindow::novoProjeto()
        ty=janela.getY();
        tz=janela.getZ();
 
-       ui->widget->mudarTamanho(tx,ty,tz);
+       ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
     }
 
 
