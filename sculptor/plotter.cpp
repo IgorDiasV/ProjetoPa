@@ -39,6 +39,7 @@ void Plotter::paintEvent(QPaintEvent *event)
 //    }
 
     painter.drawRect(px*(larg/x),py*(alt/y),larg/x,alt/y); // desenhar o contorno do widget
+
     for(int i=0;i<larg;i+=larg/x) //desenhas as linhas verticais
     {
         painter.drawLine(i,0,i,alt-2);

@@ -40,7 +40,7 @@ void MainWindow::novoProjeto()
        tx=janela.getX();
        ty=janela.getY();
        tz=janela.getZ();
-
+       matriz=new Sculptor(tx,ty,tz);
        ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
     }
 
