@@ -26,6 +26,7 @@ public:
     void putVoxel(int x, int y, int z);
     void cutVoxel(int x, int y, int z);
     void writeOFF(char* filename);
+    bool getisOn(int i,int j,int k);
 };
 
 #endif // SCULPTOR_H

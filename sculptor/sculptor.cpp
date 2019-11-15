@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include <cmath>
-Voxel ***v;
+//Voxel ***v;
 
 /**
  * @brief Sculptor::Sculptor - método construtor que aloca uma matriz tridimensional de tamanho nx por ny por nz
@@ -174,5 +174,10 @@ void Sculptor::writeOFF(char* fillename)
 
         }
     }
-   fout.close();
+    fout.close();
+}
+
+bool Sculptor::getisOn(int x,int y,int z)
+{
+    return v[z][x][y].isOn;
 }

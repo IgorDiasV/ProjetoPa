@@ -11,13 +11,15 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     int tx,ty,tz;
-    Sculptor *matriz;
+   // Sculptor *matriz;
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     void putVoxel(int x,int y);
+
     ~MainWindow();
 public slots:
+    void mudarRaioEsfera(int r);
     void novoProjeto();
     void cores();
 
