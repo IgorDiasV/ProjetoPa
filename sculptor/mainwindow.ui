@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>653</width>
-    <height>480</height>
+    <width>941</width>
+    <height>713</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -330,7 +330,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber_6">
+   <widget class="QLCDNumber" name="lcdPlanoZ">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -338,6 +338,15 @@
       <width>64</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
     </property>
    </widget>
    <widget class="QSlider" name="horizontalSlider_7">
@@ -366,7 +375,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_9">
+   <widget class="QSlider" name="sliderPlanoZ">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -374,6 +383,9 @@
       <width>160</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="maximum">
+     <number>9</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -512,6 +524,7 @@
      <enum>QLCDNumber::Flat</enum>
     </property>
    </widget>
+   <zorder>groupBox_4</zorder>
    <zorder>groupBox</zorder>
    <zorder>botaoNew</zorder>
    <zorder>botaoCores</zorder>
@@ -527,14 +540,13 @@
    <zorder>groupBox_3</zorder>
    <zorder>lcdNumber_4</zorder>
    <zorder>lcdNumber_5</zorder>
-   <zorder>lcdNumber_6</zorder>
+   <zorder>lcdPlanoZ</zorder>
    <zorder>horizontalSlider_7</zorder>
    <zorder>horizontalSlider_8</zorder>
-   <zorder>horizontalSlider_9</zorder>
+   <zorder>sliderPlanoZ</zorder>
    <zorder>label_3</zorder>
    <zorder>label_9</zorder>
    <zorder>label_10</zorder>
-   <zorder>groupBox_4</zorder>
    <zorder>widget</zorder>
    <zorder>lcdX</zorder>
    <zorder>lcdY</zorder>
@@ -547,7 +559,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>653</width>
+     <width>941</width>
      <height>22</height>
     </rect>
    </property>

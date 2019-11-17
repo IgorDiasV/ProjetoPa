@@ -6,12 +6,15 @@
 #include <cmath>
 #include "figurageometrica.h"
 #include "classes.h"
+#include <stdlib.h>
+
 FiguraGeometrica *fig;
 Plotter::Plotter(QWidget *parent) : QWidget(parent)
 {
     x=10;
     y=10;
     z=10;
+    vz=5;
     raioEsfera=1;
     matriz= new Sculptor(x,y,z);
     // setMouseTracking(true);
@@ -46,7 +49,7 @@ void Plotter::paintEvent(QPaintEvent *event)
     {
         for(int j=0;j<y;j++)
         {
-            if(matriz->getisOn(i,j,1))
+            if(matriz->getisOn(i,j,vz))
             {
                 //painter.drawRect(px*(larg/x),py*(alt/y),larg/x,alt/y); // pinta o quadrado
                 painter.drawRect(i*(larg/x),j*(alt/y),larg/x,alt/y); // pinta o quadrado
@@ -54,7 +57,6 @@ void Plotter::paintEvent(QPaintEvent *event)
             }
         }
     }
-
 
     for(int i=0;i<larg;i+=larg/x) //desenhas as linhas verticais
     {
@@ -73,7 +75,7 @@ void Plotter::mousePressEvent(QMouseEvent *event)
     py=(event->y())/(height()/y); //calcula em que quadrado na vertica se encontra o mouse
     emit mouseX(px);
     emit mouseY(py);
-    fig= new PutSphere(px,py,1,raioEsfera,1,1,1,1);
+    fig= new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
     fig->draw(*matriz);
     //matriz->putVoxel(px,py,1);
     repaint();
@@ -90,7 +92,7 @@ void Plotter::mouseMoveEvent(QMouseEvent *event)
     //emit mouseX(event->x());
     emit mouseY(py);
    // matriz->putVoxel(px,py,1);
-    fig= new PutSphere(px,py,1,raioEsfera,1,1,1,1);
+    fig= new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
     fig->draw(*matriz);
     repaint();
 }
@@ -100,11 +102,20 @@ void Plotter::mudarTamanho(int tx, int ty, int tz)
     x=tx;
     y=ty;
     z=tz;
+    matriz=new Sculptor(x,y,z);
 
-    //matriz=new Sculptor(x,y,z);
     repaint();
+
+
 }
 void Plotter::mudarRaioEsfera(int r)
 {
     raioEsfera=r;
+}
+
+void Plotter::planoAtualZ(int z)
+{
+    vz=z;
+    repaint();
+
 }

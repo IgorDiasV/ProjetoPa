@@ -22,7 +22,7 @@ public slots:
     void mudarRaioEsfera(int r);
     void novoProjeto();
     void cores();
-
+    void mudarPlanoZ(int z);
 
 private:
     Ui::MainWindow *ui;

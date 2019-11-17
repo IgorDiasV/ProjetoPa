@@ -28,6 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->widget,SIGNAL(mouseX(int)),ui->lcdX,SLOT(display(int))); //usado apenas para desenvolver, pode ser removido
     connect(ui->widget,SIGNAL(mouseY(int)),ui->lcdY,SLOT(display(int))); //usado apenas para desenvolver, pode ser removido
     /* *********************************************************** */
+
+    /* ********************** planos ****************************** */
+    connect(ui->sliderPlanoZ,SIGNAL(valueChanged(int)),ui->lcdPlanoZ,SLOT(display(int)));
+    connect(ui->sliderPlanoZ,SIGNAL(valueChanged(int)),this,SLOT(mudarPlanoZ(int)));
+    /* ************************************************************ */
 }
 
 void MainWindow::mudarRaioEsfera(int r)
@@ -35,7 +40,10 @@ void MainWindow::mudarRaioEsfera(int r)
     ui->widget->mudarRaioEsfera(r);
 
 }
-
+void MainWindow:: mudarPlanoZ(int z)
+{
+    ui->widget->planoAtualZ(z);
+}
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -50,6 +58,7 @@ void MainWindow::novoProjeto()
        tz=janela.getZ();
        //matriz=new Sculptor(tx,ty,tz);
        ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
+       ui->sliderPlanoZ->setMaximum(tz-1);
     }
 
 

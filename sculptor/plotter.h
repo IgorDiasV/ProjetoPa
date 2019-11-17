@@ -6,7 +6,7 @@
 class Plotter : public QWidget
 {
     Q_OBJECT
-    int x,y,z,px,py,raioEsfera;
+    int x,y,z,px,py,raioEsfera,vz;
     Sculptor *matriz;
 
 public:
@@ -16,6 +16,7 @@ public:
     void mousePressEvent(QMouseEvent *event);
     void mudarTamanho(int tx,int ty,int tz);
     void mudarRaioEsfera(int r);
+    void planoAtualZ(int z);
     //friend class Sculptor;
 
 signals:
