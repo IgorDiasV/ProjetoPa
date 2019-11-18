@@ -17,7 +17,7 @@ void CutEllipsoid::draw(Sculptor &t)
         for(int j=ycenter-ry; j<=ycenter+ry; j++){
             for(int k=xcenter-rx; k<=xcenter+rx; k++){
                 if(pow(i-zcenter,2)/pow(rz,2) + pow(j-ycenter,2)/pow(ry,2) + pow(k-xcenter,2)/pow(rx,2) <= 1){
-                    t.cutVoxel(i,j,k);
+                    t.cutVoxel(k,j,i);
                 }
             }
         }

@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /* ************************************************************ */
 
     connect(ui->Button_putbox,&QPushButton::clicked, ui->widget, &Plotter::mudarParaPutbox);
+    connect(ui->Button_cutsphere,&QPushButton::clicked, ui->widget, &Plotter::mudarParaCutSphere);
 }
 
 void MainWindow:: mudarPlanoZ(int z)

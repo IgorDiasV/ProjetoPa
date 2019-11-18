@@ -89,6 +89,10 @@ void Plotter::mousePressEvent(QMouseEvent *event)
         fig = new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
+    }else if(cutsphere)
+    {
+       fig =new CutSphere(px,py,vz,raioEsfera);
+       fig->draw(*matriz);
     }else if(putbox){
         fig = new PutBox(px,px+3,py,py+2,vz,vz+5,1,1,1,1);
         fig->draw(*matriz);
@@ -115,6 +119,10 @@ void Plotter::mouseMoveEvent(QMouseEvent *event)
         fig = new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
+    }else if(cutsphere)
+    {
+       fig =new CutSphere(px,py,vz,raioEsfera);
+       fig->draw(*matriz);
     }else if(putbox){
         fig = new PutBox(px,px+3,py,py+2,vz,vz+5,1,1,1,1);
         fig->draw(*matriz);
@@ -130,7 +138,7 @@ void Plotter::mudarTamanho(int tx, int ty, int tz)
     x=tx;
     y=ty;
     z=tz;
-    vz = z-1;
+    vz =0;
     matriz=new Sculptor(x,y,z);
     repaint();
 }
@@ -158,5 +166,15 @@ void Plotter::mudarParaPutbox()
     cutellipsoid = false;
 
 }
-
+void Plotter::mudarParaCutSphere()
+{
+    putvoxel = false;
+    cutvoxel = false;
+    putbox = false;
+    cutbox =  false;
+    putsphere = false;
+    cutsphere = true;
+    putellipsoid = false;
+    cutellipsoid = false;
+}
 

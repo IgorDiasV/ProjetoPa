@@ -23,6 +23,7 @@ public:
     void mudarTamanho(int tx,int ty,int tz);
     void mudarRaioEsfera(int r);
     void planoAtualZ(int z);
+    void mudarParaCutSphere();
     //friend class Sculptor;
 
 signals:

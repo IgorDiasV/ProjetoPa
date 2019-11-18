@@ -563,7 +563,7 @@
      <string>putsphere</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Button_putellipsoid">
+   <widget class="QPushButton" name="Button_cutsphere">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -573,7 +573,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>putellipsoid</string>
+     <string>cutsphere</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox_4">
@@ -621,7 +621,7 @@
    <zorder>Button_cutvoxel</zorder>
    <zorder>Button_putbox</zorder>
    <zorder>Button_putsphere</zorder>
-   <zorder>Button_putellipsoid</zorder>
+   <zorder>Button_cutsphere</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
