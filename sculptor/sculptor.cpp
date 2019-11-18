@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include <cmath>
-Voxel ***v;
+//Voxel ***v;
 
 /**
  * @brief Sculptor::Sculptor - método construtor que aloca uma matriz tridimensional de tamanho nx por ny por nz
@@ -33,15 +33,16 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
             v[i][j] = new Voxel[_ny];
         }
     }
-    for(int i=0; i<nz; i++){
-        for(int j=0; j<nx; j++){
-            for(int k=0; k<ny; k++){
+    for(int i=0; i<_nz; i++){
+        for(int j=0; j<_nx; j++){
+            for(int k=0; k<_ny; k++){
                 v[i][j][k].isOn = false;
             }
         }
     }
 
 }
+
 
 /**
  * @brief Sculptor::~Sculptor - método destrutor que libera a memória da matriz tridimensional alocada
@@ -174,5 +175,10 @@ void Sculptor::writeOFF(char* fillename)
 
         }
     }
-   fout.close();
+    fout.close();
+}
+
+bool Sculptor::getisOn(int x,int y,int z)
+{
+    return v[z][x][y].isOn;
 }

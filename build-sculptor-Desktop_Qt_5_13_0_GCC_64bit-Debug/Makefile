@@ -981,6 +981,7 @@ moc_plotter.cpp: ../sculptor/plotter.h \
 		../../../Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		../sculptor/sculptor.h \
 		moc_predefs.h \
 		../../../Qt/5.13.0/gcc_64/bin/moc
 	/home/cosmicexplorer/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /home/cosmicexplorer/etapa3_PA/ProjetoPa/build-sculptor-Desktop_Qt_5_13_0_GCC_64bit-Debug/moc_predefs.h -I/home/cosmicexplorer/Qt/5.13.0/gcc_64/mkspecs/linux-clang -I/home/cosmicexplorer/etapa3_PA/ProjetoPa/sculptor -I/home/cosmicexplorer/Qt/5.13.0/gcc_64/include -I/home/cosmicexplorer/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/cosmicexplorer/Qt/5.13.0/gcc_64/include/QtGui -I/home/cosmicexplorer/Qt/5.13.0/gcc_64/include/QtCore -I. -I/usr/include/c++/7.4.0 -I/usr/include/x86_64-linux-gnu/c++/7.4.0 -I/usr/include/c++/7.4.0/backward -I/usr/include/clang/6.0.0/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../sculptor/plotter.h -o moc_plotter.cpp
@@ -1206,7 +1207,8 @@ ui_mainwindow.h: ../sculptor/mainwindow.ui \
 		../../../Qt/5.13.0/gcc_64/include/QtCore/qfile.h \
 		../../../Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h
+		../../../Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		../sculptor/sculptor.h
 	/home/cosmicexplorer/Qt/5.13.0/gcc_64/bin/uic ../sculptor/mainwindow.ui -o ui_mainwindow.h
 
 ui_definirsculptor.h: ../sculptor/definirsculptor.ui \
@@ -1602,13 +1604,24 @@ plotter.o: ../sculptor/plotter.cpp ../sculptor/plotter.h \
 		../../../Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		../sculptor/sculptor.h \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/QBrush \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/QPen \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/qpen.h \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/QPainter \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/qpainter.h \
 		../../../Qt/5.13.0/gcc_64/include/QtGui/qtextoption.h \
-		../../../Qt/5.13.0/gcc_64/include/QtGui/QMouseEvent
+		../../../Qt/5.13.0/gcc_64/include/QtGui/QMouseEvent \
+		../sculptor/figurageometrica.h \
+		../sculptor/classes.h \
+		../sculptor/putvoxel.h \
+		../sculptor/cutvoxel.h \
+		../sculptor/putbox.h \
+		../sculptor/cutbox.h \
+		../sculptor/putsphere.h \
+		../sculptor/cutsphere.h \
+		../sculptor/putellipsoid.h \
+		../sculptor/cutellipsoid.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o plotter.o ../sculptor/plotter.cpp
 
 putbox.o: ../sculptor/putbox.cpp ../sculptor/putbox.h \

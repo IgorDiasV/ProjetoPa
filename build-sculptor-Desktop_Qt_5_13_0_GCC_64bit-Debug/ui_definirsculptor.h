@@ -51,7 +51,7 @@ public:
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         layoutWidget = new QWidget(DefinirSculptor);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(100, 70, 131, 121));
+        layoutWidget->setGeometry(QRect(100, 70, 132, 123));
         verticalLayout_4 = new QVBoxLayout(layoutWidget);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -71,6 +71,8 @@ public:
 
         spinX = new QSpinBox(layoutWidget);
         spinX->setObjectName(QString::fromUtf8("spinX"));
+        spinX->setMinimum(1);
+        spinX->setMaximum(150);
 
         horizontalLayout_5->addWidget(spinX);
 
@@ -86,6 +88,8 @@ public:
 
         spinY = new QSpinBox(layoutWidget);
         spinY->setObjectName(QString::fromUtf8("spinY"));
+        spinY->setMinimum(1);
+        spinY->setMaximum(150);
 
         horizontalLayout_6->addWidget(spinY);
 
@@ -101,6 +105,8 @@ public:
 
         spinZ = new QSpinBox(layoutWidget);
         spinZ->setObjectName(QString::fromUtf8("spinZ"));
+        spinZ->setMinimum(1);
+        spinZ->setMaximum(150);
 
         horizontalLayout_7->addWidget(spinZ);
 

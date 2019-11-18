@@ -34,8 +34,8 @@
     <rect>
      <x>100</x>
      <y>70</y>
-     <width>131</width>
-     <height>121</height>
+     <width>132</width>
+     <height>123</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -58,7 +58,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="spinX"/>
+         <widget class="QSpinBox" name="spinX">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>150</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -72,7 +79,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="spinY"/>
+         <widget class="QSpinBox" name="spinY">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>150</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -86,7 +100,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="spinZ"/>
+         <widget class="QSpinBox" name="spinZ">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>150</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
