@@ -66,14 +66,14 @@ void Plotter::paintEvent(QPaintEvent *event)
         }
     }
 
-    for(int i=0;i<larg;i+=larg/x) //desenhas as linhas verticais
+  /*  for(int i=0;i<larg;i+=larg/x) //desenhas as linhas verticais
     {
         painter.drawLine(i,0,i,alt-2);
     }
     for(int i=0;i<alt;i+=alt/y) //desenha as linhas horizontais
     {
         painter.drawLine(0,i,larg-2,i);
-    }
+    }*/
 
 }
 
