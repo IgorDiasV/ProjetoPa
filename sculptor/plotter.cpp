@@ -14,7 +14,11 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
     x=10;
     y=10;
     z=10;
+<<<<<<< HEAD
     vz=0;
+=======
+    vz=5;
+>>>>>>> f7894edc6c07e22f4357b09bdad24ef39e3ad88b
     raioEsfera=1;
     matriz= new Sculptor(x,y,z);
     // setMouseTracking(true);
@@ -84,6 +88,7 @@ void Plotter::mousePressEvent(QMouseEvent *event)
     py=(event->y())/(height()/y); //calcula em que quadrado na vertica se encontra o mouse
     emit mouseX(px);
     emit mouseY(py);
+<<<<<<< HEAD
     if(putsphere){
         fig = new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
         fig->draw(*matriz);
@@ -93,6 +98,11 @@ void Plotter::mousePressEvent(QMouseEvent *event)
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
     }
+=======
+    fig= new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
+    fig->draw(*matriz);
+    //matriz->putVoxel(px,py,1);
+>>>>>>> f7894edc6c07e22f4357b09bdad24ef39e3ad88b
     repaint();
 }
 
@@ -116,6 +126,7 @@ void Plotter::mouseMoveEvent(QMouseEvent *event)
     }
     repaint();
 }
+<<<<<<< HEAD
 
 void Plotter::mudarTamanho(int tx, int ty, int tz)
 {
@@ -136,9 +147,33 @@ void Plotter::mudarRaioEsfera(int r)
 void Plotter::planoAtualZ(int z)
 {
     vz=z;
+=======
+void Plotter::mouseMoveEvent(QMouseEvent *event)
+{
+    //int px=ceil((width()-1)/(width()-event->x()));
+    px=(event->x())/(width()/x); //calcula em que quadrado na horizontal se encontra o mouse
+    py=(event->y())/(height()/y); //calcula em que quadrado na vertica se encontra o mouse
+    emit mouseX(px);
+    //emit mouseX(event->x());
+    emit mouseY(py);
+   // matriz->putVoxel(px,py,1);
+    fig= new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
+    fig->draw(*matriz);
+>>>>>>> f7894edc6c07e22f4357b09bdad24ef39e3ad88b
     repaint();
 }
+void Plotter::mudarTamanho(int tx, int ty, int tz)
+{
+    matriz->~Sculptor();
+    x=tx;
+    y=ty;
+    z=tz;
+    matriz=new Sculptor(x,y,z);
 
+    repaint();
+
+
+<<<<<<< HEAD
 void Plotter::mudarParaPutbox()
 {
     putvoxel = false;
@@ -149,4 +184,17 @@ void Plotter::mudarParaPutbox()
     cutsphere = false;
     putellipsoid = false;
     cutellipsoid = false;
+=======
+}
+void Plotter::mudarRaioEsfera(int r)
+{
+    raioEsfera=r;
+}
+
+void Plotter::planoAtualZ(int z)
+{
+    vz=z;
+    repaint();
+
+>>>>>>> f7894edc6c07e22f4357b09bdad24ef39e3ad88b
 }

@@ -8,9 +8,12 @@ class Plotter : public QWidget
     Q_OBJECT
     int x,y,z,px,py,raioEsfera,vz;
     Sculptor *matriz;
+<<<<<<< HEAD
     //vaiáveis de forma
     bool putvoxel, cutvoxel, putbox, cutbox, putsphere, cutsphere, putellipsoid, cutellipsoid;
 
+=======
+>>>>>>> f7894edc6c07e22f4357b09bdad24ef39e3ad88b
 
 public:
     explicit Plotter(QWidget *parent = nullptr);

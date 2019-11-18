@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->widget,SIGNAL(mouseX(int)),ui->lcdX,SLOT(display(int))); //usado apenas para desenvolver, pode ser removido
     connect(ui->widget,SIGNAL(mouseY(int)),ui->lcdY,SLOT(display(int))); //usado apenas para desenvolver, pode ser removido
     /* *********************************************************** */
+<<<<<<< HEAD
 
     /* ********************** planos ****************************** */
     connect(ui->sliderPlanoZ,SIGNAL(valueChanged(int)),ui->lcdPlanoZ,SLOT(display(int)));
@@ -40,13 +41,28 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::mudarRaioEsfera(int r)
 {
     ui->widget->mudarRaioEsfera(r);
+=======
+>>>>>>> f7894edc6c07e22f4357b09bdad24ef39e3ad88b
 
+    /* ********************** planos ****************************** */
+    connect(ui->sliderPlanoZ,SIGNAL(valueChanged(int)),ui->lcdPlanoZ,SLOT(display(int)));
+    connect(ui->sliderPlanoZ,SIGNAL(valueChanged(int)),this,SLOT(mudarPlanoZ(int)));
+    /* ************************************************************ */
 }
 void MainWindow:: mudarPlanoZ(int z)
 {
     ui->widget->planoAtualZ(z);
 }
 
+void MainWindow::mudarRaioEsfera(int r)
+{
+    ui->widget->mudarRaioEsfera(r);
+
+}
+void MainWindow:: mudarPlanoZ(int z)
+{
+    ui->widget->planoAtualZ(z);
+}
 MainWindow::~MainWindow()
 {
     delete ui;
