@@ -6,15 +6,18 @@
 class Plotter : public QWidget
 {
     Q_OBJECT
-    int x,y,z,px,py,raioEsfera,vz;
+    //dimensões da matriz
+    int x,y,z;
+    //posição do mouse
+    int px,py,vz;
+    //esfera
+    int raioEsfera;
+    //caixa
+    int DimX, DimY, DimZ;
+    //elipse
     Sculptor *matriz;
-
     //vaiáveis de forma
     bool putvoxel, cutvoxel, putbox, cutbox, putsphere, cutsphere, putellipsoid, cutellipsoid;
-
-
-
-
 public:
     explicit Plotter(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *event);
@@ -22,6 +25,9 @@ public:
     void mousePressEvent(QMouseEvent *event);
     void mudarTamanho(int tx,int ty,int tz);
     void mudarRaioEsfera(int r);
+    void mudarDimBoX(int dimx);
+    void mudarDimBoY(int dimy);
+    void mudarDimBoZ(int dimz);
     void planoAtualZ(int z);
     void mudarParaCutSphere();
     //friend class Sculptor;
@@ -34,7 +40,7 @@ public slots:
 //    void mudarParaCutvoxel();
       void mudarParaPutbox();
 //    void mudarParaCutbox();
-//    void mudarParaPutsphere();
+      void mudarParaPutsphere();
 //    void mudarParaCutsphere();
 //    void mudarParaPutellipsoid();
 //    void mudarParaCutellipsoid();

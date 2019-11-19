@@ -16,9 +16,12 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
     z=10;
     vz=0;
     raioEsfera=1;
+    DimX=1;
+    DimY=1;
+    DimZ=1;
     matriz= new Sculptor(x,y,z);
     // setMouseTracking(true);
-    putvoxel = false;
+    putvoxel = true;
     cutvoxel = false;
     putbox = false;
     cutbox =  false;
@@ -38,7 +41,7 @@ void Plotter::paintEvent(QPaintEvent *event)
 
     pen.setColor(QColor(0,0,0));
     painter.setPen(pen);
-    painter.drawRect(0,0,larg-2,alt-2);
+    painter.drawRect(0,0,larg,alt);
     brush.setColor(QColor(255,255,0));
     brush.setStyle(Qt::SolidPattern);
     //painter.setPen(pen);
@@ -89,14 +92,15 @@ void Plotter::mousePressEvent(QMouseEvent *event)
         fig = new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
-    }else if(cutsphere)
-    {
+    }else if(cutsphere){
        fig =new CutSphere(px,py,vz,raioEsfera);
        fig->draw(*matriz);
     }else if(putbox){
-        fig = new PutBox(px,px+3,py,py+2,vz,vz+5,1,1,1,1);
+        fig = new PutBox(px,px+DimX,py,py+DimY,vz,vz+DimZ,1,1,1,1);
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
+    }else if(putvoxel){
+        fig = new PutVoxel(px,py,vz,1,1,1,1);
     }
 
     //fig= new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
@@ -119,15 +123,17 @@ void Plotter::mouseMoveEvent(QMouseEvent *event)
         fig = new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
-    }else if(cutsphere)
-    {
+    }else if(cutsphere){
        fig =new CutSphere(px,py,vz,raioEsfera);
        fig->draw(*matriz);
     }else if(putbox){
-        fig = new PutBox(px,px+3,py,py+2,vz,vz+5,1,1,1,1);
+        fig = new PutBox(px,px+DimX,py,py+DimY,vz,vz+DimZ,1,1,1,1);
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
+    }else if(putvoxel){
+        fig = new PutVoxel(px,py,vz,1,1,1,1);
     }
+
     repaint();
 }
 
@@ -138,7 +144,7 @@ void Plotter::mudarTamanho(int tx, int ty, int tz)
     x=tx;
     y=ty;
     z=tz;
-    vz =0;
+    vz=0;
     matriz=new Sculptor(x,y,z);
     repaint();
 }
@@ -146,6 +152,21 @@ void Plotter::mudarTamanho(int tx, int ty, int tz)
 void Plotter::mudarRaioEsfera(int r)
 {
     raioEsfera=r;
+}
+
+void Plotter::mudarDimBoX(int dimx)
+{
+    DimX = dimx;
+}
+
+void Plotter::mudarDimBoY(int dimy)
+{
+    DimY = dimy;
+}
+
+void Plotter::mudarDimBoZ(int dimz)
+{
+    DimZ = dimz;
 }
 
 void Plotter::planoAtualZ(int z)
@@ -165,6 +186,18 @@ void Plotter::mudarParaPutbox()
     putellipsoid = false;
     cutellipsoid = false;
 
+}
+
+void Plotter::mudarParaPutsphere()
+{
+    putvoxel = false;
+    cutvoxel = false;
+    putbox = false;
+    cutbox =  false;
+    putsphere = true;
+    cutsphere = false;
+    putellipsoid = false;
+    cutellipsoid = false;
 }
 void Plotter::mudarParaCutSphere()
 {

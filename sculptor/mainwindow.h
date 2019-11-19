@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "sculptor.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -16,13 +17,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     void putVoxel(int x,int y);
-
     ~MainWindow();
 public slots:
+    //esfera
     void mudarRaioEsfera(int r);
+    //caixa
+    void mudarDimBoX(int dimx);
+    void mudarDimBoY(int dimy);
+    void mudarDimBoZ(int dimz);
+    //elipse
+
+    //outros
     void novoProjeto();
-    void cores();
     void mudarPlanoZ(int z);
+    void cores();
 
 private:
     Ui::MainWindow *ui;
