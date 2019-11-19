@@ -32,6 +32,7 @@ public:
     void mudarParaCutSphere();
     //friend class Sculptor;
 
+    void abrirProjeto(string arquivo);
 signals:
     void mouseX(int);
     void mouseY(int);
