@@ -45,6 +45,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->Button_putbox,&QPushButton::clicked, ui->widget, &Plotter::mudarParaPutbox);
     connect(ui->Button_cutsphere,&QPushButton::clicked, ui->widget, &Plotter::mudarParaCutSphere);
     connect(ui->Button_putsphere,&QPushButton::clicked, ui->widget, &Plotter::mudarParaPutsphere);
+    /* ************************************************************************** */
+    connect(ui->checkBox,&QCheckBox::stateChanged,this,&MainWindow::mudarVisibilidade);
+   // connect(ui->checkBox,SIGNAL(stateChanged),this,SLOT(mudarVisibilidade));
+   // qDebug()<<ui->checkBox->isTristate();
 }
 
 void MainWindow:: mudarPlanoZ(int z)
@@ -96,5 +100,11 @@ void MainWindow::cores()
 {
    QColor p=QColorDialog::getColor(Qt::white,this,"Escolha uma cor");
    // QColor p=QColorDialog::getColor();
+}
+
+void MainWindow::mudarVisibilidade()
+{
+    ui->widget->visibilidadeDaGrade(ui->checkBox->isChecked());
+  //qDebug()<<ui->checkBox->isChecked();
 }
 

@@ -17,7 +17,7 @@ class Plotter : public QWidget
     //elipse
     Sculptor *matriz;
     //vaiáveis de forma
-    bool putvoxel, cutvoxel, putbox, cutbox, putsphere, cutsphere, putellipsoid, cutellipsoid;
+    bool putvoxel, cutvoxel, putbox, cutbox, putsphere, cutsphere, putellipsoid, cutellipsoid,grade;
 public:
     explicit Plotter(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *event);
@@ -30,6 +30,7 @@ public:
     void mudarDimBoZ(int dimz);
     void planoAtualZ(int z);
     void mudarParaCutSphere();
+    void visibilidadeDaGrade(bool p);
     //friend class Sculptor;
 
     void abrirProjeto(string arquivo);

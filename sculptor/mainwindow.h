@@ -31,7 +31,7 @@ public slots:
     void novoProjeto();
     void mudarPlanoZ(int z);
     void cores();
-
+    void mudarVisibilidade();
 private:
     Ui::MainWindow *ui;
 };

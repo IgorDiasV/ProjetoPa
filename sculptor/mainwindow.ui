@@ -646,6 +646,19 @@
      <string>cutellipsoid</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>590</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CheckBox</string>
+    </property>
+   </widget>
    <zorder>groupBox_4</zorder>
    <zorder>groupBox</zorder>
    <zorder>botaoNew</zorder>
@@ -676,6 +689,7 @@
    <zorder>Button_cutbox</zorder>
    <zorder>Button_putellipsoid</zorder>
    <zorder>Button_cutellipsoid</zorder>
+   <zorder>checkBox</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

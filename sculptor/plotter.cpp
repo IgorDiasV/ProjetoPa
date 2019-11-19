@@ -10,6 +10,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <QDebug>
 using namespace std;
 FiguraGeometrica *fig;
 Plotter::Plotter(QWidget *parent) : QWidget(parent)
@@ -32,6 +33,7 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
     cutsphere = false;
     putellipsoid = false;
     cutellipsoid = false;
+    grade =false;
     abrirProjeto("robo");
 }
 void Plotter::paintEvent(QPaintEvent *event)
@@ -74,14 +76,17 @@ void Plotter::paintEvent(QPaintEvent *event)
         }
     }
 
-  /*  for(int i=0;i<larg;i+=larg/x) //desenhas as linhas verticais
+    if(grade)
     {
-        painter.drawLine(i,0,i,alt-2);
+        for(int i=0;i<larg;i+=larg/x) //desenhas as linhas verticais
+        {
+            painter.drawLine(i,0,i,alt-2);
+        }
+        for(int i=0;i<alt;i+=alt/y) //desenha as linhas horizontais
+        {
+            painter.drawLine(0,i,larg-2,i);
+        }
     }
-    for(int i=0;i<alt;i+=alt/y) //desenha as linhas horizontais
-    {
-        painter.drawLine(0,i,larg-2,i);
-    }*/
 
 }
 
@@ -98,8 +103,8 @@ void Plotter::mousePressEvent(QMouseEvent *event)
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
     }else if(cutsphere){
-       fig =new CutSphere(px,py,vz,raioEsfera);
-       fig->draw(*matriz);
+        fig =new CutSphere(px,py,vz,raioEsfera);
+        fig->draw(*matriz);
     }else if(putbox){
         fig = new PutBox(px,px+DimX,py,py+DimY,vz,vz+DimZ,1,1,1,1);
         fig->draw(*matriz);
@@ -109,7 +114,7 @@ void Plotter::mousePressEvent(QMouseEvent *event)
     }
 
     //fig= new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
-   // fig->draw(*matriz);
+    // fig->draw(*matriz);
     //matriz->putVoxel(px,py,1);
 
     repaint();
@@ -129,8 +134,8 @@ void Plotter::mouseMoveEvent(QMouseEvent *event)
         fig->draw(*matriz);
         //matriz->putVoxel(px,py,1);
     }else if(cutsphere){
-       fig =new CutSphere(px,py,vz,raioEsfera);
-       fig->draw(*matriz);
+        fig =new CutSphere(px,py,vz,raioEsfera);
+        fig->draw(*matriz);
     }else if(putbox){
         fig = new PutBox(px,px+DimX,py,py+DimY,vz,vz+DimZ,1,1,1,1);
         fig->draw(*matriz);
@@ -215,6 +220,14 @@ void Plotter::mudarParaCutSphere()
     putellipsoid = false;
     cutellipsoid = false;
 }
+
+void Plotter::visibilidadeDaGrade(bool p)
+{
+    grade=p;
+    qDebug()<<grade;
+    repaint();
+    qDebug()<<grade;
+}
 void Plotter::abrirProjeto(string arquivo)
 {
     int dimx=1,dimy=1,dimz=1;
@@ -283,7 +296,7 @@ void Plotter::abrirProjeto(string arquivo)
     {
         fig[i]->draw(*matriz);
     }
-   // p.writeOFF("novo.off");
+    // p.writeOFF("novo.off");
     //system("geomview novo.off");
 
 }
