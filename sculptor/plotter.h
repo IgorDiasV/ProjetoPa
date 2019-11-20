@@ -41,7 +41,7 @@ signals:
     void mouseX(int);
     void mouseY(int);
 public slots:
-//    void mudarParaPutvoxel();
+  //    void mudarParaPutvoxel();
 //    void mudarParaCutvoxel();
       void mudarParaPutbox();
 //    void mudarParaCutbox();
