@@ -19,13 +19,16 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
     DimX=1;
     DimY=1;
     DimZ=1;
+    Rx=1;
+    Ry=1;
+    Rz=1;
     matriz= new Sculptor(x,y,z);
     // setMouseTracking(true);
     putvoxel = true;
     cutvoxel = false;
     putbox = false;
     cutbox =  false;
-    putsphere = true;
+    putsphere = false;
     cutsphere = false;
     putellipsoid = false;
     cutellipsoid = false;
@@ -101,12 +104,11 @@ void Plotter::mousePressEvent(QMouseEvent *event)
         //matriz->putVoxel(px,py,1);
     }else if(putvoxel){
         fig = new PutVoxel(px,py,vz,1,1,1,1);
+        fig->draw(*matriz);
+    }else if(putellipsoid){
+        fig = new PutEllipsoid(px,py,vz,Rx,Ry,Rz,1,1,1,1);
+        fig->draw(*matriz);
     }
-
-    //fig= new PutSphere(px,py,vz,raioEsfera,1,1,1,1);
-    fig->draw(*matriz);
-    //matriz->putVoxel(px,py,1);
-
     repaint();
 }
 
@@ -132,8 +134,11 @@ void Plotter::mouseMoveEvent(QMouseEvent *event)
         //matriz->putVoxel(px,py,1);
     }else if(putvoxel){
         fig = new PutVoxel(px,py,vz,1,1,1,1);
+        fig->draw(*matriz);
+    }else if(putellipsoid){
+        fig = new PutEllipsoid(px,py,vz,Rx,Ry,Rz,1,1,1,1);
+        fig->draw(*matriz);
     }
-
     repaint();
 }
 
@@ -169,10 +174,37 @@ void Plotter::mudarDimBoZ(int dimz)
     DimZ = dimz;
 }
 
+void Plotter::mudarRaioX(int rx)
+{
+    Rx = rx;
+}
+
+void Plotter::mudarRaioY(int ry)
+{
+    Ry = ry;
+}
+
+void Plotter::mudarRaioZ(int rz)
+{
+    Rz = rz;
+}
+
 void Plotter::planoAtualZ(int z)
 {
     vz=z;
     repaint();
+}
+
+void Plotter::mudarParaPutvoxel()
+{
+    putvoxel = true;
+    cutvoxel = false;
+    putbox = false;
+    cutbox =  false;
+    putsphere = false;
+    cutsphere = false;
+    putellipsoid = false;
+    cutellipsoid = false;
 }
 
 void Plotter::mudarParaPutbox()
@@ -199,7 +231,7 @@ void Plotter::mudarParaPutsphere()
     putellipsoid = false;
     cutellipsoid = false;
 }
-void Plotter::mudarParaCutSphere()
+void Plotter::mudarParaCutsphere()
 {
     putvoxel = false;
     cutvoxel = false;
@@ -210,4 +242,17 @@ void Plotter::mudarParaCutSphere()
     putellipsoid = false;
     cutellipsoid = false;
 }
+
+void Plotter::mudarParaPutellipsoid()
+{
+    putvoxel = false;
+    cutvoxel = false;
+    putbox = false;
+    cutbox =  false;
+    putsphere = false;
+    cutsphere = false;
+    putellipsoid = true;
+    cutellipsoid = false;
+}
+
 

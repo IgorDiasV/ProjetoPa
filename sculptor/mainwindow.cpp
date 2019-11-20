@@ -30,7 +30,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->SliderDimZ, SIGNAL(valueChanged(int)), ui->lcdNumberDimZ, SLOT(display(int)));
     connect(ui->SliderDimZ, SIGNAL(valueChanged(int)), this, SLOT(mudarDimBoZ(int)));
 
-//ui->lcdNumber->display(x);
+    /********************* para elipse ***************************/
+    connect(ui->SliderRx, SIGNAL(valueChanged(int)), ui->lcdNumberRx, SLOT(display(int)));
+    connect(ui->SliderRx, SIGNAL(valueChanged(int)), this, SLOT(mudarRaioX(int)));
+    connect(ui->SliderRy, SIGNAL(valueChanged(int)), ui->lcdNumberRy, SLOT(display(int)));
+    connect(ui->SliderRy, SIGNAL(valueChanged(int)), this, SLOT(mudarRaioY(int)));
+    connect(ui->SliderRz, SIGNAL(valueChanged(int)), ui->lcdNumberRz, SLOT(display(int)));
+    connect(ui->SliderRz, SIGNAL(valueChanged(int)), this, SLOT(mudarRaioZ(int)));
+
     /* ******************* detecta o click do mouse *************** */
     connect(ui->widget,SIGNAL(mouseX(int)),ui->lcdX,SLOT(display(int))); //usado apenas para desenvolver, pode ser removido
     connect(ui->widget,SIGNAL(mouseY(int)),ui->lcdY,SLOT(display(int))); //usado apenas para desenvolver, pode ser removido
@@ -42,9 +49,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->sliderPlanoZ,SIGNAL(valueChanged(int)),this,SLOT(mudarPlanoZ(int)));
 
     /* ********************** formas geométricas ********************************* */
+    connect(ui->Button_putvoxel, &QPushButton::clicked, ui->widget, &Plotter::mudarParaPutvoxel);
     connect(ui->Button_putbox,&QPushButton::clicked, ui->widget, &Plotter::mudarParaPutbox);
-    connect(ui->Button_cutsphere,&QPushButton::clicked, ui->widget, &Plotter::mudarParaCutSphere);
+    connect(ui->Button_cutsphere,&QPushButton::clicked, ui->widget, &Plotter::mudarParaCutsphere);
     connect(ui->Button_putsphere,&QPushButton::clicked, ui->widget, &Plotter::mudarParaPutsphere);
+
 }
 
 void MainWindow:: mudarPlanoZ(int z)
@@ -71,6 +80,21 @@ void MainWindow::mudarDimBoY(int dimy)
 void MainWindow::mudarDimBoZ(int dimz)
 {
     ui->widget->mudarDimBoZ(dimz);
+}
+
+void MainWindow::mudarRaioX(int rx)
+{
+    ui->widget->mudarRaioX(rx);
+}
+
+void MainWindow::mudarRaioY(int ry)
+{
+    ui->widget->mudarRaioY(ry);
+}
+
+void MainWindow::mudarRaioZ(int rz)
+{
+    ui->widget->mudarRaioZ(rz);
 }
 
 MainWindow::~MainWindow()

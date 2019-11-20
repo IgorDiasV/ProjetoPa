@@ -324,7 +324,7 @@
       <string>Ry</string>
      </property>
     </widget>
-    <widget class="QSlider" name="horizontalSlider_3">
+    <widget class="QSlider" name="SliderRz">
      <property name="geometry">
       <rect>
        <x>39</x>
@@ -337,7 +337,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QSlider" name="horizontalSlider_2">
+    <widget class="QSlider" name="SliderRy">
      <property name="geometry">
       <rect>
        <x>39</x>
@@ -350,7 +350,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QSlider" name="horizontalSlider">
+    <widget class="QSlider" name="SliderRx">
      <property name="geometry">
       <rect>
        <x>39</x>
@@ -387,6 +387,36 @@
      </property>
      <property name="text">
       <string>Rx</string>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="lcdNumberRx">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>30</y>
+       <width>64</width>
+       <height>23</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="lcdNumberRy">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>60</y>
+       <width>64</width>
+       <height>23</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="lcdNumberRz">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>90</y>
+       <width>64</width>
+       <height>23</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -496,7 +526,7 @@
     <widget class="QLCDNumber" name="lcdNumberDimY">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>240</x>
        <y>60</y>
        <width>64</width>
        <height>23</height>
@@ -545,7 +575,7 @@
     <widget class="QLCDNumber" name="lcdNumberDimZ">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>240</x>
        <y>90</y>
        <width>64</width>
        <height>23</height>
@@ -581,7 +611,7 @@
     <widget class="QLCDNumber" name="lcdNumberDimX">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>240</x>
        <y>30</y>
        <width>64</width>
        <height>23</height>

@@ -15,6 +15,7 @@ class Plotter : public QWidget
     //caixa
     int DimX, DimY, DimZ;
     //elipse
+    int Rx, Ry, Rz;
     Sculptor *matriz;
     //vaiáveis de forma
     bool putvoxel, cutvoxel, putbox, cutbox, putsphere, cutsphere, putellipsoid, cutellipsoid;
@@ -28,21 +29,24 @@ public:
     void mudarDimBoX(int dimx);
     void mudarDimBoY(int dimy);
     void mudarDimBoZ(int dimz);
+    void mudarRaioX(int rx);
+    void mudarRaioY(int ry);
+    void mudarRaioZ(int rz);
     void planoAtualZ(int z);
-    void mudarParaCutSphere();
+    //void mudarParaCutSphere();
     //friend class Sculptor;
 
 signals:
     void mouseX(int);
     void mouseY(int);
 public slots:
-//    void mudarParaPutvoxel();
+      void mudarParaPutvoxel();
 //    void mudarParaCutvoxel();
       void mudarParaPutbox();
 //    void mudarParaCutbox();
       void mudarParaPutsphere();
-//    void mudarParaCutsphere();
-//    void mudarParaPutellipsoid();
+      void mudarParaCutsphere();
+      void mudarParaPutellipsoid();
 //    void mudarParaCutellipsoid();
 };
 
