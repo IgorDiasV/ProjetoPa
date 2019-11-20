@@ -26,9 +26,7 @@ public slots:
     void mudarDimBoY(int dimy);
     void mudarDimBoZ(int dimz);
     //elipse
-    void mudarRaioX(int rx);
-    void mudarRaioY(int ry);
-    void mudarRaioZ(int rz);
+
     //outros
     void novoProjeto();
     void mudarPlanoZ(int z);
