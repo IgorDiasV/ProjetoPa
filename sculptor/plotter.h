@@ -18,7 +18,7 @@ class Plotter : public QWidget
     int Rx, Ry, Rz;
     Sculptor *matriz;
     //vaiáveis de forma
-    bool putvoxel, cutvoxel, putbox, cutbox, putsphere, cutsphere, putellipsoid, cutellipsoid;
+    bool putvoxel, cutvoxel, putbox, cutbox, putsphere, cutsphere, putellipsoid, cutellipsoid,grade;
 public:
     explicit Plotter(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *event);
@@ -33,9 +33,15 @@ public:
     void mudarRaioY(int ry);
     void mudarRaioZ(int rz);
     void planoAtualZ(int z);
+<<<<<<< HEAD
     //void mudarParaCutSphere();
+=======
+    void mudarParaCutSphere();
+    void visibilidadeDaGrade(bool p);
+>>>>>>> 6b85e2843655079c702990371e6e4800d7abb69a
     //friend class Sculptor;
 
+    void abrirProjeto(string arquivo);
 signals:
     void mouseX(int);
     void mouseY(int);

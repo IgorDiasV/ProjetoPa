@@ -7,7 +7,8 @@
 #include <QDebug>
 #include <plotter.h>
 #include "sculptor.h"
-
+#include <QFileDialog>
+#include <string>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -53,7 +54,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->Button_putbox,&QPushButton::clicked, ui->widget, &Plotter::mudarParaPutbox);
     connect(ui->Button_cutsphere,&QPushButton::clicked, ui->widget, &Plotter::mudarParaCutsphere);
     connect(ui->Button_putsphere,&QPushButton::clicked, ui->widget, &Plotter::mudarParaPutsphere);
+<<<<<<< HEAD
 
+=======
+    /* ************************************************************************** */
+    connect(ui->checkBox,&QCheckBox::stateChanged,this,&MainWindow::mudarVisibilidade);
+   // connect(ui->checkBox,SIGNAL(stateChanged),this,SLOT(mudarVisibilidade));
+   // qDebug()<<ui->checkBox->isTristate();
+>>>>>>> 6b85e2843655079c702990371e6e4800d7abb69a
 }
 
 void MainWindow:: mudarPlanoZ(int z)
@@ -122,3 +130,16 @@ void MainWindow::cores()
    // QColor p=QColorDialog::getColor();
 }
 
+void MainWindow::mudarVisibilidade()
+{
+    ui->widget->visibilidadeDaGrade(ui->checkBox->isChecked());
+  //qDebug()<<ui->checkBox->isChecked();
+}
+
+
+void MainWindow::on_actionAbrir_Projeto_triggered()
+{
+   QString nomeDoArquivo=QFileDialog::getOpenFileName();
+   ui->widget->abrirProjeto(nomeDoArquivo.toStdString());
+
+}
