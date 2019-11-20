@@ -34,6 +34,7 @@ public slots:
     void mudarPlanoZ(int z);
     void cores();
     void mudarVisibilidade();
+    void corSlider();
 private slots:
     void on_actionAbrir_Projeto_triggered();
 

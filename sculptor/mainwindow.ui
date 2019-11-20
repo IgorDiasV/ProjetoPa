@@ -31,13 +31,13 @@
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>470</y>
+      <y>510</y>
       <width>111</width>
-      <height>71</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="text">
-     <string>cores</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLCDNumber" name="lcdNumber_4">
@@ -376,7 +376,7 @@
      <string>grade</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>529</x>
@@ -443,7 +443,7 @@
        <property name="title">
         <string>Ellipse</string>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -513,7 +513,7 @@
        <property name="title">
         <string>Caixa</string>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -585,21 +585,112 @@
          </item>
         </layout>
        </widget>
-       <zorder>SliderDimZ</zorder>
-       <zorder>label</zorder>
-       <zorder>lcdNumberDimY</zorder>
-       <zorder>label_7</zorder>
-       <zorder>label_8</zorder>
-       <zorder>SliderDimY</zorder>
-       <zorder>lcdNumberDimZ</zorder>
-       <zorder>SliderDimX</zorder>
-       <zorder>lcdNumberDimX</zorder>
       </widget>
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>480</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>COR</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="sliderR">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>520</y>
+      <width>160</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="sliderG">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>550</y>
+      <width>160</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="sliderB">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>590</y>
+      <width>160</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>520</y>
+      <width>16</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>R</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>550</y>
+      <width>16</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>G</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>590</y>
+      <width>16</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>B</string>
+    </property>
+   </widget>
+   <zorder>layoutWidget</zorder>
    <zorder>groupBox_4</zorder>
-   <zorder>groupBox</zorder>
    <zorder>botaoNew</zorder>
    <zorder>botaoCores</zorder>
    <zorder>lcdNumber_4</zorder>
@@ -617,17 +708,22 @@
    <zorder>label_11</zorder>
    <zorder>label_12</zorder>
    <zorder>l</zorder>
-   <zorder>groupBox_2</zorder>
    <zorder>Button_putvoxel</zorder>
    <zorder>Button_cutvoxel</zorder>
    <zorder>Button_putbox</zorder>
    <zorder>Button_putsphere</zorder>
    <zorder>Button_cutsphere</zorder>
-   <zorder>groupBox_3</zorder>
    <zorder>Button_cutbox</zorder>
    <zorder>Button_putellipsoid</zorder>
    <zorder>Button_cutellipsoid</zorder>
    <zorder>checkBox</zorder>
+   <zorder>label_13</zorder>
+   <zorder>sliderR</zorder>
+   <zorder>sliderG</zorder>
+   <zorder>sliderB</zorder>
+   <zorder>label_14</zorder>
+   <zorder>label_15</zorder>
+   <zorder>label_16</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

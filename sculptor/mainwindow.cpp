@@ -9,6 +9,7 @@
 #include "sculptor.h"
 #include <QFileDialog>
 #include <string>
+#include <string.h>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -60,8 +61,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
     /* ************************************************************************** */
     connect(ui->checkBox,&QCheckBox::stateChanged,this,&MainWindow::mudarVisibilidade);
-   // connect(ui->checkBox,SIGNAL(stateChanged),this,SLOT(mudarVisibilidade));
-   // qDebug()<<ui->checkBox->isTristate();
+    // connect(ui->checkBox,SIGNAL(stateChanged),this,SLOT(mudarVisibilidade));
+    // qDebug()<<ui->checkBox->isTristate();
+    //ui->botaoCores->setStyleSheet("QPushButton {background-color: rgb(255,255,0)}" );
+    //;
+    //   ui->botaoCores->setStyleSheet("QPushButton:hover {background-color: rgb(255,255,0)}");
+    /* ********************************* Cores ********************************** */
+    /*connect(ui->sliderR,SIGNAL(valueChanged),this,SLOT(corSlider()));
+    connect(ui->sliderG,SIGNAL(valueChanged(int)),this,SLOT(corSlider));
+    connect(ui->sliderB,SIGNAL(valueChanged(int)),this,SLOT(corSlider));
+    */
+    connect(ui->sliderR,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
+    connect(ui->sliderG,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
+    connect(ui->sliderB,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
 }
 
 void MainWindow:: mudarPlanoZ(int z)
@@ -114,31 +126,61 @@ void MainWindow::novoProjeto()
     DefinirSculptor janela;
     if(janela.exec()== QDialog::Accepted)
     {
-       tx=janela.getX();
-       ty=janela.getY();
-       tz=janela.getZ();
-       //matriz=new Sculptor(tx,ty,tz);
-       ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
-       ui->sliderPlanoZ->setMaximum(tz-1);
+        tx=janela.getX();
+        ty=janela.getY();
+        tz=janela.getZ();
+        //matriz=new Sculptor(tx,ty,tz);
+        ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
+        ui->sliderPlanoZ->setMaximum(tz-1);
     }
 }
 
 void MainWindow::cores()
 {
-   QColor p=QColorDialog::getColor(Qt::white,this,"Escolha uma cor");
-   ui->widget->definirCor(p.red(), p.green(), p.blue());
-}
 
+
+    QColor p=QColorDialog::getColor(Qt::white,this,"Escolha uma cor");
+    ui->widget->definirCor(p.red(), p.green(), p.blue());
+    string css="QPushButton {background-color: rgb(";
+    css+= std::to_string(p.red());
+    css+=",";
+    css+=std::to_string(p.green());
+    css+=",";
+    css+=std::to_string(p.blue());
+    css+=")}";
+
+    ui->botaoCores->setStyleSheet(QString::fromStdString(css));
+    ui->sliderR->setValue(p.red());
+    ui->sliderG->setValue(p.green());
+    ui->sliderB->setValue(p.blue());
+
+}
 void MainWindow::mudarVisibilidade()
 {
     ui->widget->visibilidadeDaGrade(ui->checkBox->isChecked());
-  //qDebug()<<ui->checkBox->isChecked();
+
 }
 
 
 void MainWindow::on_actionAbrir_Projeto_triggered()
 {
-   QString nomeDoArquivo=QFileDialog::getOpenFileName();
-   ui->widget->abrirProjeto(nomeDoArquivo.toStdString());
-   ui->sliderPlanoZ->setMaximum(ui->widget->getDz()-1);
+    QString nomeDoArquivo=QFileDialog::getOpenFileName();
+    ui->widget->abrirProjeto(nomeDoArquivo.toStdString());
+    ui->sliderPlanoZ->setMaximum(ui->widget->getDz()-1);
+}
+void MainWindow::corSlider()
+{
+
+    string css="QPushButton {background-color: rgb(";
+    css+= std::to_string(ui->sliderR->value());
+    css+=",";
+    css+=std::to_string(ui->sliderG->value());
+    css+=",";
+    css+=std::to_string(ui->sliderB->value());
+    css+=")}";
+    ui->botaoCores->setStyleSheet(QString::fromStdString(css));
+    ui->widget->definirCor(ui->sliderR->value(),ui->sliderG->value(),ui->sliderB->value()) ;
+
+
+
 }
