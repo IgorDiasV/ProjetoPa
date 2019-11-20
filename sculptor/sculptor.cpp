@@ -182,3 +182,18 @@ bool Sculptor::getisOn(int x,int y,int z)
 {
     return v[z][x][y].isOn;
 }
+
+float Sculptor::getR(int i, int j, int k)
+{
+    return v[k][i][j].r;
+}
+
+float Sculptor::getG(int i, int j, int k)
+{
+    return v[k][i][j].g;
+}
+
+float Sculptor::getB(int i, int j, int k)
+{
+    return v[k][i][j].b;
+}

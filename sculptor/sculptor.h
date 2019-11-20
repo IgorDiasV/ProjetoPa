@@ -17,8 +17,8 @@ protected:
     Voxel ***v;
     // 3D matrix
     int nx,ny,nz; // Dimensions
-    float r,g,b,a; // Current drawing color
 public:
+    float r,g,b,a; // Current drawing color
     Sculptor();
     Sculptor(int _nx, int _ny, int _nz);
     ~Sculptor();
@@ -27,6 +27,9 @@ public:
     void cutVoxel(int x, int y, int z);
     void writeOFF(char* filename);
     bool getisOn(int i,int j,int k);
+    float getR(int i, int j, int k);
+    float getG(int i, int j, int k);
+    float getB(int i, int j, int k);
 };
 
 #endif // SCULPTOR_H
