@@ -7,7 +7,8 @@
 #include <QDebug>
 #include <plotter.h>
 #include "sculptor.h"
-
+#include <QFileDialog>
+#include <string>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -108,3 +109,10 @@ void MainWindow::mudarVisibilidade()
   //qDebug()<<ui->checkBox->isChecked();
 }
 
+
+void MainWindow::on_actionAbrir_Projeto_triggered()
+{
+   QString nomeDoArquivo=QFileDialog::getOpenFileName();
+   ui->widget->abrirProjeto(nomeDoArquivo.toStdString());
+
+}

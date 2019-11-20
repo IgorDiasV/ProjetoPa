@@ -173,7 +173,7 @@
      </rect>
     </property>
     <property name="maximum">
-     <number>99</number>
+     <number>9</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -700,6 +700,13 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMENU">
+    <property name="title">
+     <string>MENU</string>
+    </property>
+    <addaction name="actionAbrir_Projeto"/>
+   </widget>
+   <addaction name="menuMENU"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -710,6 +717,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionAbrir_Projeto">
+   <property name="text">
+    <string>Abrir Projeto </string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

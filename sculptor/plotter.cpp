@@ -11,13 +11,14 @@
 #include <iostream>
 #include <sstream>
 #include <QDebug>
+
 using namespace std;
 FiguraGeometrica *fig;
 Plotter::Plotter(QWidget *parent) : QWidget(parent)
 {
-    x=100;
-    y=100;
-    z=100;
+    x=10;
+    y=10;
+    z=10;
     vz=0;
     raioEsfera=1;
     DimX=1;
@@ -34,7 +35,7 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
     putellipsoid = false;
     cutellipsoid = false;
     grade =false;
-    abrirProjeto("robo");
+
 }
 void Plotter::paintEvent(QPaintEvent *event)
 {
@@ -156,6 +157,7 @@ void Plotter::mudarTamanho(int tx, int ty, int tz)
     z=tz;
     vz=0;
     matriz=new Sculptor(x,y,z);
+
     repaint();
 }
 
@@ -224,9 +226,8 @@ void Plotter::mudarParaCutSphere()
 void Plotter::visibilidadeDaGrade(bool p)
 {
     grade=p;
-    qDebug()<<grade;
     repaint();
-    qDebug()<<grade;
+
 }
 void Plotter::abrirProjeto(string arquivo)
 {
@@ -291,13 +292,14 @@ void Plotter::abrirProjeto(string arquivo)
             break;
         }
     }
-    //Sculptor p(dimx,dimy,dimz);
+    mudarTamanho(dimx,dimy,dimz);
     for(unsigned int i=0;i<fig.size();i++)
     {
         fig[i]->draw(*matriz);
     }
     // p.writeOFF("novo.off");
     //system("geomview novo.off");
+    repaint();
 
 }
 

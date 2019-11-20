@@ -32,6 +32,9 @@ public slots:
     void mudarPlanoZ(int z);
     void cores();
     void mudarVisibilidade();
+private slots:
+    void on_actionAbrir_Projeto_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
