@@ -739,6 +739,7 @@
      <string>MENU</string>
     </property>
     <addaction name="actionAbrir_Projeto"/>
+    <addaction name="actionSalvar_Projeto"/>
    </widget>
    <addaction name="menuMENU"/>
   </widget>
@@ -754,6 +755,11 @@
   <action name="actionAbrir_Projeto">
    <property name="text">
     <string>Abrir Projeto </string>
+   </property>
+  </action>
+  <action name="actionSalvar_Projeto">
+   <property name="text">
+    <string>Salvar Projeto</string>
    </property>
   </action>
  </widget>

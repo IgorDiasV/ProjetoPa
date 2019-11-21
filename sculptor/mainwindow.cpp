@@ -74,6 +74,17 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->sliderR,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
     connect(ui->sliderG,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
     connect(ui->sliderB,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
+    /*****************  hover ************************************* */
+    ui->Button_cutbox->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+   ui->Button_putbox->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+   ui->Button_cutvoxel->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+   ui->Button_putvoxel->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+   ui->Button_cutsphere->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+   ui->Button_cutellipsoid->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+   ui->Button_putsphere->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+   ui->Button_putellipsoid->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+   // ui->botaoCores->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
+
 }
 
 void MainWindow:: mudarPlanoZ(int z)
@@ -181,6 +192,14 @@ void MainWindow::corSlider()
     ui->botaoCores->setStyleSheet(QString::fromStdString(css));
     ui->widget->definirCor(ui->sliderR->value(),ui->sliderG->value(),ui->sliderB->value()) ;
 
+
+
+}
+
+void MainWindow::on_actionSalvar_Projeto_triggered()
+{
+    QString nomeDoArquivo=QFileDialog::getSaveFileName();
+    ui->widget->salvarProjeto(nomeDoArquivo.toStdString());
 
 
 }

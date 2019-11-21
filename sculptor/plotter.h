@@ -43,6 +43,7 @@ public:
     int getDz();
     //friend class Sculptor;
     void abrirProjeto(string arquivo);
+    void salvarProjeto(string arquivo);
 signals:
     void mouseX(int);
     void mouseY(int);

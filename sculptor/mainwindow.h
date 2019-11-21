@@ -38,6 +38,8 @@ public slots:
 private slots:
     void on_actionAbrir_Projeto_triggered();
 
+    void on_actionSalvar_Projeto_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -434,3 +434,29 @@ int Plotter::getDz()
 {
     return z;
 }
+void Plotter::salvarProjeto(string arquivo)
+{
+    ofstream fout;
+    fout.open(arquivo);
+    if(!fout.is_open())
+    {
+        exit(0);
+    }
+    fout<<"dim "<<x<<" "<<y<<" "<<z<<endl;
+
+    for(int i=0;i<x;i++)
+    {
+        for(int j=0;j<y;j++)
+        {
+            for(int k=0;k<z;k++)
+            {
+                if(matriz->getisOn(i,j,k))
+                {
+                    fout<<"putvoxel "<<i<<" "<<j<<" "<<k<<" "<<matriz->getR(i,j,k)
+                       <<" "<<matriz->getG(i,j,k)<<" "<<matriz->getB(i,j,k)<<" "<<1<<endl;
+                }
+            }
+        }
+    }
+
+}
