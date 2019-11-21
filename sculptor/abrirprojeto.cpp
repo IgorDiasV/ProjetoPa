@@ -75,7 +75,7 @@ AbrirProjeto::AbrirProjeto(string arquivo)
     {
         fig[i]->draw(p);
     }
-    p.writeOFF("novo.off");
-    system("geomview novo.off");
+    p.writeOFF(arquivo + ".off");
+    //system("geomview " + arquivo + ".off");
 
 }

@@ -11,6 +11,7 @@
 #include <iostream>
 #include <sstream>
 #include <QDebug>
+#include "abrirprojeto.h"
 
 using namespace std;
 FiguraGeometrica *fig;
@@ -347,7 +348,6 @@ void Plotter::definirCor(int r, int g, int b)
     matriz->setColor(this->r,this->g,this->b,1);
 }
 
-
 void Plotter::abrirProjeto(string arquivo)
 {
     int dimx=1,dimy=1,dimz=1;
@@ -416,8 +416,6 @@ void Plotter::abrirProjeto(string arquivo)
     {
         fig[i]->draw(*matriz);
     }
-    // p.writeOFF("novo.off");
-    //system("geomview novo.off");
     repaint();
 
 }
@@ -458,5 +456,6 @@ void Plotter::salvarProjeto(string arquivo)
             }
         }
     }
-
+    fout.close();
+    AbrirProjeto((string)arquivo);
 }

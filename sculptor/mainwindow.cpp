@@ -74,17 +74,17 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->sliderR,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
     connect(ui->sliderG,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
     connect(ui->sliderB,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
-    /*****************  hover ************************************* */
-    ui->Button_cutbox->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
-   ui->Button_putbox->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
-   ui->Button_cutvoxel->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
-   ui->Button_putvoxel->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
-   ui->Button_cutsphere->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
-   ui->Button_cutellipsoid->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
-   ui->Button_putsphere->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
-   ui->Button_putellipsoid->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
-   // ui->botaoCores->setStyleSheet("QPushButton:hover {background-color: rgb(0,255,0)}");
 
+    /*****************  hover ************************************* */
+    ui->Button_cutbox->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
+    ui->Button_putbox->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
+    ui->Button_cutvoxel->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
+    ui->Button_putvoxel->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
+    ui->Button_cutsphere->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
+    ui->Button_cutellipsoid->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
+    ui->Button_putsphere->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
+    ui->Button_putellipsoid->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
+    // ui->botaoCores->setStyleSheet("QPushButton:hover {border: 3px dashed black}");
 }
 
 void MainWindow:: mudarPlanoZ(int z)
@@ -148,8 +148,6 @@ void MainWindow::novoProjeto()
 
 void MainWindow::cores()
 {
-
-
     QColor p=QColorDialog::getColor(Qt::white,this,"Escolha uma cor");
     ui->widget->definirCor(p.red(), p.green(), p.blue());
     string css="QPushButton {background-color: rgb(";
@@ -166,12 +164,11 @@ void MainWindow::cores()
     ui->sliderB->setValue(p.blue());
 
 }
+
 void MainWindow::mudarVisibilidade()
 {
     ui->widget->visibilidadeDaGrade(ui->checkBox->isChecked());
-
 }
-
 
 void MainWindow::on_actionAbrir_Projeto_triggered()
 {
@@ -179,9 +176,9 @@ void MainWindow::on_actionAbrir_Projeto_triggered()
     ui->widget->abrirProjeto(nomeDoArquivo.toStdString());
     ui->sliderPlanoZ->setMaximum(ui->widget->getDz()-1);
 }
+
 void MainWindow::corSlider()
 {
-
     string css="QPushButton {background-color: rgb(";
     css+= std::to_string(ui->sliderR->value());
     css+=",";
@@ -191,15 +188,10 @@ void MainWindow::corSlider()
     css+=")}";
     ui->botaoCores->setStyleSheet(QString::fromStdString(css));
     ui->widget->definirCor(ui->sliderR->value(),ui->sliderG->value(),ui->sliderB->value()) ;
-
-
-
 }
 
 void MainWindow::on_actionSalvar_Projeto_triggered()
 {
     QString nomeDoArquivo=QFileDialog::getSaveFileName();
     ui->widget->salvarProjeto(nomeDoArquivo.toStdString());
-
-
 }

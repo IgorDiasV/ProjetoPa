@@ -25,7 +25,7 @@ public:
     void setColor(float r, float g, float b, float alpha);
     void putVoxel(int x, int y, int z);
     void cutVoxel(int x, int y, int z);
-    void writeOFF(char* filename);
+    void writeOFF(string filename);
     bool getisOn(int i,int j,int k);
     float getR(int i, int j, int k);
     float getG(int i, int j, int k);

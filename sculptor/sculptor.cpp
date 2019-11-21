@@ -106,7 +106,7 @@ void Sculptor:: cutVoxel(int x, int y, int z)
  * que será lido pelo programa
  * @param fillename - nome do arquivo
  */
-void Sculptor::writeOFF(char* fillename)
+void Sculptor::writeOFF(string fillename)
 {
     int nVertices=0,nFaces=0;
     ofstream fout;
