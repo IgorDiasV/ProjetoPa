@@ -9,12 +9,12 @@ https://igordiasv.github.io/Documentacao/inherits.html
 
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; O Escultor j&aacute; possui algumas figuras pr&eacute;-definidas prontas para ser usadas, como caixas, esferas e elips&oacute;ides, facilitando assim o trabalho do projetista.</p>
 
-<p>Imagem da tela inicial do Escultor digital</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Imagem da tela inicial do Escultor digital</p>
   
 <img src="img/telaPrincipal.png"></img>
 <p style="text-align:center"><span style="font-size:16px"><strong>Principais fun&ccedil;&otilde;es&nbsp;</strong></span></p>
 
-<p><strong>Abrir Porjeto</strong>: encontra-se na aba menu e tem como funcionalidade abrir um projeto salvo, no&nbsp;padr&atilde;o usado pelo sculpor,&nbsp;para&nbsp; dar continuidade.</p>
+<p><strong>Abrir Projeto</strong>: encontra-se na aba menu e tem como funcionalidade abrir um projeto salvo, no&nbsp;padr&atilde;o usado pelo sculpor,&nbsp;para&nbsp; dar continuidade.</p>
 
 <p><strong>Salvar Projeto</strong>:&nbsp;&nbsp;encontra-se na aba menu e tem como funcionalidade salvar o projeto no padr&atilde;o do sculptor.</p>
 
