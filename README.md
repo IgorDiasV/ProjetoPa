@@ -11,7 +11,7 @@ https://igordiasv.github.io/Documentacao/inherits.html
 
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Imagem da tela inicial do Escultor digital</p>
   
-<img src="img/telaPrincipal.png"></img>
+<img src="img/telaPrincipal2.png"></img>
 <p style="text-align:center"><span style="font-size:16px"><strong>Principais fun&ccedil;&otilde;es&nbsp;</strong></span></p>
 
 <p><strong>Abrir Projeto</strong>: encontra-se na aba menu e tem como funcionalidade abrir um projeto salvo, no&nbsp;padr&atilde;o usado pelo sculpor,&nbsp;para&nbsp; dar continuidade.</p>
@@ -19,9 +19,11 @@ https://igordiasv.github.io/Documentacao/inherits.html
 <p><strong>Salvar Projeto</strong>:&nbsp;&nbsp;encontra-se na aba menu e tem como funcionalidade salvar o projeto no padr&atilde;o do sculptor.</p>
 
 <p><strong>Exporta Projeto</strong>:&nbsp;encontra-se na aba menu e tem como funcionalidade salvar o desenho feito em um formato .off que poder lido por programas de visualiza&ccedil;&atilde;o 3d.</p>
+<p><strong>PutVoxel</strong>: desenha um quadrado.</p>
 
+<p><strong>CutVoxel</strong>: remove o desenho de um&nbsp;&nbsp;quadrado.</p>
 <p><strong>PutBox</strong>: desenha uma caixa com as dimen&ccedil;&otilde;es de altura,largua e profundidade que podem&nbsp;ser&nbsp; definidas&nbsp;nos sliders.&nbsp;</p>
-
+<p><strong>CutBox</strong>: revome o desenhor que estiver na regi&atilde;o da caixa com dimen&ccedil;&otilde;es definidas pelos sliders.</p>
 <p><strong>PutSphere</strong>: desenha uma esfera cujo centro é onde o mouse for clicado, o raio é definido pelo slider  "raio".</p>
 
 <p><strong>CutSphere</strong>: apaga uma esfera cujo centro é onde o mouse for clicado, o raio também é definido pelo slider  "raio".</p>
@@ -29,6 +31,9 @@ https://igordiasv.github.io/Documentacao/inherits.html
 <p><strong>PutEllipsoid</strong>: desenha um elipsóide cujo centro é onde o mouse for clicado, o raio na coordenada X, Y e Z é definido pelos sliders  "RaioX", "RaioY" e "RaioZ".</p>
 
 <p><strong>CutEllipsoid</strong>: apaga um elipsóide cujo centro é onde o mouse for clicado, o raio na coordenada X, Y e Z é definido pelos sliders  "RaioX", "RaioY" e "RaioZ".</p>
+
+<p><strong>Cores:</strong>&nbsp;Permiter escolher uma cor por meio dos seletores de cores do sistema ou usando o sliders que seguem o padr&atilde;o rgb.</p>
+
 
 </html>
 
