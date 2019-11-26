@@ -172,6 +172,9 @@ void MainWindow::corSlider()
     css+=")}";
     ui->botaoCores->setStyleSheet(QString::fromStdString(css));
     ui->widget->definirCor(ui->sliderR->value(),ui->sliderG->value(),ui->sliderB->value()) ;
+    ui->lcdNumber->display(ui->sliderR->value());
+    ui->lcdNumber_2->display(ui->sliderG->value());
+    ui->lcdNumber_3->display(ui->sliderB->value());
 }
 //abre o projeto já existente
 void MainWindow::on_actionAbrir_Projeto_triggered()

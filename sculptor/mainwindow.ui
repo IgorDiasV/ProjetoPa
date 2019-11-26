@@ -69,7 +69,7 @@
       <item>
        <widget class="QSlider" name="sliderPlanoZ">
         <property name="maximum">
-         <number>9</number>
+         <number>29</number>
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -335,7 +335,7 @@
      <string>MeshLab</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -796,7 +796,6 @@
    <zorder>label_17</zorder>
    <zorder>Button_MeshLab</zorder>
    <zorder>layoutWidget</zorder>
-   <zorder>groupBox_7</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
