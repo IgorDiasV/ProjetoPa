@@ -22,6 +22,7 @@ https://igordiasv.github.io/Documentacao/inherits.html
 
 <p><strong>PutBox</strong>: desenha uma caixa com as dimen&ccedil;&otilde;es de altura,largua e profundidade que podem&nbsp;ser&nbsp; definidas&nbsp;nos sliders.&nbsp;</p>
 
-
+<p><strong>PutSphere</strong>: desenha uma esfera com cujo centro é onde o mouse for clicado, o raio pode ser definido pelo slider  "raioEsfera".</p>
+  
 </html>
 
