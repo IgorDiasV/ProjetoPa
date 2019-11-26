@@ -8,5 +8,6 @@ https://igordiasv.github.io/Documentacao/inherits.html
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Semelhante ao conhecido jogo minecraft, todos os objetos so Escultor digital s&atilde;o construidos a partir de um bloco padr&atilde;o simples chamados de voxel. O usu&aacute;rio pode definir a cor e a posi&ccedil;&atilde;o de cada voxel, bem como apagar o voxel de uma posi&ccedil;&atilde;o, e assim criar figuras mais complexas.</p>
 
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; O Escultor j&aacute; possui algumas figuras pr&eacute;-definidas prontas para ser usadas, como caixas, esferas e elips&oacute;ides, facilitando assim o trabalho do projetista.</p>
+<img src="img/telaPrincipal.png"></img>
 </html>
 
