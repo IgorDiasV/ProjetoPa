@@ -22,7 +22,13 @@ https://igordiasv.github.io/Documentacao/inherits.html
 
 <p><strong>PutBox</strong>: desenha uma caixa com as dimen&ccedil;&otilde;es de altura,largua e profundidade que podem&nbsp;ser&nbsp; definidas&nbsp;nos sliders.&nbsp;</p>
 
-<p><strong>PutSphere</strong>: desenha uma esfera com cujo centro é onde o mouse for clicado, o raio pode ser definido pelo slider  "raioEsfera".</p>
-  
+<p><strong>PutSphere</strong>: desenha uma esfera cujo centro é onde o mouse for clicado, o raio é definido pelo slider  "raio".</p>
+
+<p><strong>CutSphere</strong>: apaga uma esfera cujo centro é onde o mouse for clicado, o raio também é definido pelo slider  "raio".</p>
+
+<p><strong>PutEllipsoid</strong>: desenha um elipsóide cujo centro é onde o mouse for clicado, o raio na coordenada X, Y e Z é definido pelos sliders  "RaioX", "RaioY" e "RaioZ".</p>
+
+<p><strong>CutEllipsoid</strong>: apaga um elipsóide cujo centro é onde o mouse for clicado, o raio na coordenada X, Y e Z é definido pelos sliders  "RaioX", "RaioY" e "RaioZ".</p>
+
 </html>
 
