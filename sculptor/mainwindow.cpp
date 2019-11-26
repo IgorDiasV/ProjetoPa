@@ -82,65 +82,61 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Button_putellipsoid->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
 }
 
+//função que conecta a interface ao widget
+//passa como parâmetro o valor atual do sliderZ
 void MainWindow:: mudarPlanoZ(int z)
 {
     ui->widget->planoAtualZ(z);
 }
-
+//função que conecta a interface ao widget
+//passa como parâmetro o valor do raio da esfera
 void MainWindow::mudarRaioEsfera(int r)
 {
     ui->widget->mudarRaioEsfera(r);
 
 }
-
+//função que conecta a interface ao widget
+//passa como parâmetro o valor do dimensão x da caixa
 void MainWindow::mudarDimBoX(int dimx)
 {
     ui->widget->mudarDimBoX(dimx);
 }
-
+//função que conecta a interface ao widget
+//passa como parâmetro o valor do dimensão y da caixa
 void MainWindow::mudarDimBoY(int dimy)
 {
     ui->widget->mudarDimBoY(dimy);
 }
-
+//função que conecta a interface ao widget
+//passa como parâmetro o valor do dimensão z da caixa
 void MainWindow::mudarDimBoZ(int dimz)
 {
     ui->widget->mudarDimBoZ(dimz);
 }
+//função que conecta a interface ao widget
+//passa como parâmetro o valor do raio x do elipsóide
 void MainWindow::mudarRaioX(int rx)
 {
     ui->widget->mudarRaioX(rx);
 }
-
+//função que conecta a interface ao widget
+//passa como parâmetro o valor do raio y do elipsóide
 void MainWindow::mudarRaioY(int ry)
 {
     ui->widget->mudarRaioY(ry);
 }
-
+//função que conecta a interface ao widget
+//passa como parâmetro o valor do raio z do elipsóide
 void MainWindow::mudarRaioZ(int rz)
 {
     ui->widget->mudarRaioZ(rz);
 }
-
+//destrutor da classe mainwindow
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-/*
-void MainWindow::novoProjeto()
-{
-    DefinirSculptor janela;
-    if(janela.exec()== QDialog::Accepted)
-    {
-        tx=janela.getX();
-        ty=janela.getY();
-        tz=janela.getZ();
-        //matriz=new Sculptor(tx,ty,tz);
-        ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
-        ui->sliderPlanoZ->setMaximum(tz-1);
-    }
-}
-*/
+//define a posição dos slides de cor para a cor atual
 void MainWindow::cores()
 {
     QColor p=QColorDialog::getColor(Qt::white,this,"Escolha uma cor");
@@ -159,7 +155,7 @@ void MainWindow::cores()
     ui->sliderB->setValue(p.blue());
 
 }
-
+//conecta o checkbox ao widget para mudar o modo de visualização do plotter
 void MainWindow::mudarVisibilidade()
 {
     ui->widget->visibilidadeDaGrade(ui->checkBox->isChecked());
@@ -177,7 +173,7 @@ void MainWindow::corSlider()
     ui->botaoCores->setStyleSheet(QString::fromStdString(css));
     ui->widget->definirCor(ui->sliderR->value(),ui->sliderG->value(),ui->sliderB->value()) ;
 }
-
+//abre o projeto já existente
 void MainWindow::on_actionAbrir_Projeto_triggered()
 {
     QString nomeDoArquivo=QFileDialog::getOpenFileName();
@@ -187,7 +183,7 @@ void MainWindow::on_actionAbrir_Projeto_triggered()
     ui->sliderPlanoZ->setMaximum(ui->widget->getDz()-1);
     ui->sliderPlanoZ->setValue(0);
 }
-
+//salva o projeto atual
 void MainWindow::on_actionSalvar_Projeto_triggered()
 {
     QString nomeDoArquivo=QFileDialog::getSaveFileName();
@@ -195,7 +191,7 @@ void MainWindow::on_actionSalvar_Projeto_triggered()
         ui->widget->salvarProjeto(nomeDoArquivo.toStdString());
     }
 }
-
+//exporta o projeto como arquivo .off, não podendo mais ser editado
 void MainWindow::on_actionExportar_Projeto_triggered()
 {
     QString nomeDoArquivo=QFileDialog::getSaveFileName();
@@ -203,7 +199,7 @@ void MainWindow::on_actionExportar_Projeto_triggered()
         ui->widget->exportarProjeto(nomeDoArquivo.toStdString());
     }
 }
-
+//cria um novo projeto
 void MainWindow::on_actionNovo_Projeto_triggered()
 {
     DefinirSculptor janela;
@@ -215,12 +211,13 @@ void MainWindow::on_actionNovo_Projeto_triggered()
         //matriz=new Sculptor(tx,ty,tz);
         ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
         ui->sliderPlanoZ->setMaximum(tz-1);
+        /*
         ui->sliderEsfera->setMaximum(tx);
         ui->SliderRx->setMaximum(tx);
         ui->SliderRy->setMaximum(tx);
         ui->SliderRz->setMaximum(tx);
         ui->SliderDimX->setMaximum(tx);
         ui->SliderDimY->setMaximum(tx);
-        ui->SliderDimZ->setMaximum(tx);
+        ui->SliderDimZ->setMaximum(tx);*/
     }
 }

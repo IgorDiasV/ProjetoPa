@@ -44,6 +44,7 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
     grade =false;
 
 }
+//desenha o contorno do plotter, e o gradeado de acordo com os parâmetros da classe
 void Plotter::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
@@ -98,7 +99,7 @@ void Plotter::paintEvent(QPaintEvent *event)
     }
 
 }
-
+//pinta a figura atual quando o mouse é arrastado
 void Plotter::mousePressEvent(QMouseEvent *event)
 {
 
@@ -141,7 +142,7 @@ void Plotter::mousePressEvent(QMouseEvent *event)
     }
     repaint();
 }
-
+//pinta uma figura quando o mouse é movimentado
 void Plotter::mouseMoveEvent(QMouseEvent *event)
 {
     //int px=ceil((width()-1)/(width()-event->x()));
@@ -186,7 +187,7 @@ void Plotter::mouseMoveEvent(QMouseEvent *event)
     }
     repaint();
 }
-
+//muda o tamanho da matriz alocado, apaga o projeto anterior
 void Plotter::mudarTamanho(int tx, int ty, int tz)
 {
     delete matriz;
@@ -197,46 +198,48 @@ void Plotter::mudarTamanho(int tx, int ty, int tz)
     matriz = new Sculptor(x,y,z);
     repaint();
 }
-
+//muda o raio da esfera
 void Plotter::mudarRaioEsfera(int r)
 {
     raioEsfera = r;
 }
-
+//muda a dimensão x da caixa
 void Plotter::mudarDimBoX(int dimx)
 {
     DimX = dimx;
 }
-
+//muda a dimensão y da caixa
 void Plotter::mudarDimBoY(int dimy)
 {
     DimY = dimy;
 }
-
+//muda a dimensão z da caixa
 void Plotter::mudarDimBoZ(int dimz)
 {
     DimZ = dimz;
 }
+//muda o raio x do elipsóide
 void Plotter::mudarRaioX(int rx)
 {
     Rx = rx;
 }
-
+//muda o raio y do elipsóide
 void Plotter::mudarRaioY(int ry)
 {
     Ry = ry;
 }
-
+//muda o raio z do elipsóide
 void Plotter::mudarRaioZ(int rz)
 {
     Rz = rz;
 }
+//muda o plano atual que mostra na tela e redesenha o widget
 void Plotter::planoAtualZ(int z)
 {
     vz=z;
     repaint();
 }
-
+//muda o modo de desenho para putvoxel
 void Plotter::mudarParaPutvoxel()
 {
     putvoxel = true;
@@ -248,7 +251,7 @@ void Plotter::mudarParaPutvoxel()
     putellipsoid = false;
     cutellipsoid = false;
 }
-
+//muda o modo de desenho para cutvoxel
 void Plotter::mudarParaCutvoxel()
 {
     putvoxel = false;
@@ -260,7 +263,7 @@ void Plotter::mudarParaCutvoxel()
     putellipsoid = false;
     cutellipsoid = false;
 }
-
+//muda o modo de desenho para putbox
 void Plotter::mudarParaPutbox()
 {
     putvoxel = false;
@@ -272,7 +275,7 @@ void Plotter::mudarParaPutbox()
     putellipsoid = false;
     cutellipsoid = false;
 }
-
+//muda o modo de desenho para cutbox
 void Plotter::mudarParaCutbox()
 {
     putvoxel = false;
@@ -284,7 +287,7 @@ void Plotter::mudarParaCutbox()
     putellipsoid = false;
     cutellipsoid = false;
 }
-
+//muda o modo de desenho para putsphere
 void Plotter::mudarParaPutsphere()
 {
     putvoxel = false;
@@ -296,7 +299,7 @@ void Plotter::mudarParaPutsphere()
     putellipsoid = false;
     cutellipsoid = false;
 }
-
+//muda o modo de desenho para cutsphere
 void Plotter::mudarParaCutsphere()
 {
     putvoxel = false;
@@ -308,7 +311,7 @@ void Plotter::mudarParaCutsphere()
     putellipsoid = false;
     cutellipsoid = false;
 }
-
+//muda o modo de desenho para putellipsoid
 void Plotter::mudarParaPutellipsoid()
 {
     putvoxel = false;
@@ -320,7 +323,7 @@ void Plotter::mudarParaPutellipsoid()
     putellipsoid = true;
     cutellipsoid = false;
 }
-
+//muda o modo de desenho para cutellipsoid
 void Plotter::mudarParaCutellipsoid()
 {
     putvoxel = false;
@@ -332,19 +335,19 @@ void Plotter::mudarParaCutellipsoid()
     putellipsoid = false;
     cutellipsoid = true;
 }
-
+//abri o projeto atual no meshlab
 void Plotter::abrirNoMeshlab()
 {
     matriz->writeOFF("arquivo.off");
     system("meshlab arquivo.off");
 }
-
+//muda o mode de visualização do plotter (grade ou sem grade) e redesenha
 void Plotter::visibilidadeDaGrade(bool p)
 {
     grade=p;
     repaint();
 }
-
+//define as cores do RGB
 void Plotter::definirCor(int r, int g, int b)
 {
     this->r = (float)r/255;
@@ -352,7 +355,7 @@ void Plotter::definirCor(int r, int g, int b)
     this->b = (float)b/255;
     matriz->setColor(this->r,this->g,this->b,1);
 }
-
+//abre um projeto de instruções já existente
 void Plotter::abrirProjeto(string arquivo)
 {
     int dimx=1,dimy=1,dimz=1;
@@ -421,25 +424,24 @@ void Plotter::abrirProjeto(string arquivo)
     {
         fig[i]->draw(*matriz);
     }
-
     repaint();
 }
-
+//retorna o tamanho da grade do widget no eixo x
 int Plotter::getDx()
 {
     return x;
 }
-
+//retorna o tamanho da grade do widget no eixo y
 int Plotter::getDy()
 {
     return y;
 }
-
+//retorna o tamanho da grade do widget no eixo z
 int Plotter::getDz()
 {
     return z;
 }
-
+//salva o projeto com um documento de texto com as instruções de desenho
 void Plotter::salvarProjeto(string arquivo)
 {
     ofstream fout;
@@ -466,9 +468,8 @@ void Plotter::salvarProjeto(string arquivo)
     }
     fout.close();
 }
-
+//exporta o projeto como arquivo .off
 void Plotter::exportarProjeto(string arquivo)
 {
-    //AbrirProjeto((string)arquivo);
     matriz->writeOFF(arquivo);
 }

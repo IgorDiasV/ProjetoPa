@@ -1,7 +1,7 @@
 #include "putsphere.h"
-//#include "sculptor.h"
 #include <cmath>
 
+//pinta uma esfera, tendo como parâmetro o centro e o raio
 PutSphere::PutSphere(int xcenter, int ycenter, int zcenter, int radius, float r, float g, float b, float a)
 {
     setColor(r,g,b,a);

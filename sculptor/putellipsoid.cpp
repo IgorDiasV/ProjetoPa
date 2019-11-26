@@ -1,6 +1,7 @@
 #include "putellipsoid.h"
 #include <cmath>
 
+//pinta um elipsoide, tendo como parâmetro o centro e os raios em cada coordenada
 PutEllipsoid::PutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz, float r, float g, float b, float a)
 {
     setColor(r,g,b,a);

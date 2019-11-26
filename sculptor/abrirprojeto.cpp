@@ -7,6 +7,7 @@
 
 using namespace std;
 
+//ler um arquivo que contém as instruçãos de como desenhar uma figura 3D
 AbrirProjeto::AbrirProjeto(string arquivo)
 {
     int dimx=1,dimy=1,dimz=1;

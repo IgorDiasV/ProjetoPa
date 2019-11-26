@@ -1,6 +1,7 @@
 #include "cutellipsoid.h"
 #include <cmath>
 
+//corta um elipsoide, tendo como parâmetro o centro e os raios em cada coordenada
 CutEllipsoid::CutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
 {
     this->xcenter = xcenter;

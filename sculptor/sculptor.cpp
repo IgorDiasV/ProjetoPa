@@ -177,7 +177,7 @@ void Sculptor::writeOFF(string fillename)
     }
     fout.close();
 }
-
+//verifica se um voxel está ligado
 bool Sculptor::getisOn(int x,int y,int z)
 {
     return v[z][x][y].isOn;

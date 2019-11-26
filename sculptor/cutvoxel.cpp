@@ -1,6 +1,7 @@
 #include "cutvoxel.h"
 #include "sculptor.h"
 
+//apaga um voxel de uma posição
 CutVoxel::CutVoxel(int x,int y,int z)
 {
     this->x = x;

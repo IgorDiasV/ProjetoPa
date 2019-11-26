@@ -1,6 +1,7 @@
 #include "putvoxel.h"
 #include "sculptor.h"
 
+//desenha um voxel de uma posição
 PutVoxel::PutVoxel(int x,int y,int z,float r,float g,float b,float a)
 {
     setColor(r,g,b,a);
