@@ -9,5 +9,16 @@ https://igordiasv.github.io/Documentacao/inherits.html
 
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; O Escultor j&aacute; possui algumas figuras pr&eacute;-definidas prontas para ser usadas, como caixas, esferas e elips&oacute;ides, facilitando assim o trabalho do projetista.</p>
 <img src="img/telaPrincipal.png"></img>
+<p style="text-align:center"><span style="font-size:16px"><strong>Principais fun&ccedil;&otilde;es&nbsp;</strong></span></p>
+
+<p><strong>Abrir Porjeto</strong>: encontra-se na aba menu e tem como funcionalidade abrir um projeto salvo, no&nbsp;padr&atilde;o usado pelo sculpor,&nbsp;para&nbsp; dar continuidade.</p>
+
+<p><strong>Salvar Projeto</strong>:&nbsp;&nbsp;encontra-se na aba menu e tem como funcionalidade salvar o projeto no padr&atilde;o do sculptor.</p>
+
+<p><strong>Exporta Projeto</strong>:&nbsp;encontra-se na aba menu e tem como funcionalidade salvar o desenho feito em um formato .off que poder lido por programas de visualiza&ccedil;&atilde;o 3d.</p>
+
+<p><strong>PutBox</strong>: desenha uma caixa com as dimen&ccedil;&otilde;es de altura,largua e profundidade que podem&nbsp;ser&nbsp; definidas&nbsp;nos sliders.&nbsp;</p>
+
+
 </html>
 
