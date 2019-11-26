@@ -24,11 +24,11 @@ https://igordiasv.github.io/Documentacao/inherits.html
 
 <p>desenhando uma esfera na tela</p>
 
-<img src="/home/cosmicexplorer/Área de Trabalho/3dEsfRed.png"><img>
+<img src="img/telaEsfRed.png"><img>
 
 <p>visualização 3D da figura
   
-<img  
+<img src="img/3dEsfRed.png"><img>
 
 <h4>Principais funcionalidades</h4>
 
