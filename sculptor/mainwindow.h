@@ -30,7 +30,6 @@ public slots:
     void mudarRaioY(int ry);
     void mudarRaioZ(int rz);
     //outros
-    void novoProjeto();
     void mudarPlanoZ(int z);
     void cores();
     void mudarVisibilidade();
