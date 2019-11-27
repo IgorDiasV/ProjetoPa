@@ -24,7 +24,7 @@ https://igordiasv.github.io/Documentacao/inherits.html
 
 <p>desenhando uma esfera na tela</p>
 
-<img src="img/telaesfRed.png"><img>
+<img src="img/telaEsfRed.png"><img>
 
 <p>visualização 3D da figura.
   
