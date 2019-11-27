@@ -7,7 +7,12 @@
 
 using namespace std;
 
-//ler um arquivo que contém as instruçãos de como desenhar uma figura 3D
+/**
+ * @brief AbrirProjeto::AbrirProjeto
+ * Ler um arquivo que contém as instruçãos de como desenhar uma figura 3D.
+ * @param arquivo
+ * nome do arquivo que vai ser usado na leitura
+ */
 AbrirProjeto::AbrirProjeto(string arquivo)
 {
     int dimx=1,dimy=1,dimz=1;

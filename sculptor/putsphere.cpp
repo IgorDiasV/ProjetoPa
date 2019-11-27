@@ -1,7 +1,19 @@
 #include "putsphere.h"
 #include <cmath>
 
-//pinta uma esfera, tendo como parâmetro o centro e o raio
+/**
+ * @brief PutSphere::PutSphere
+ * Desenha uma esfera, tendo como parâmetro o centro e o raio.
+ * @param xcenter: centro da esfera no eixo x.
+ * @param ycenter: centro da esfera no eixo y.
+ * @param zcenter: centro da esfera no eixo z.
+ * @param radius: raio da esfera.
+ * @param rz: raio no eixo z
+ * @param r: nível de vermelho.
+ * @param g: nível de verde.
+ * @param b: nível de azul.
+ * @param a: transparência.
+ */
 PutSphere::PutSphere(int xcenter, int ycenter, int zcenter, int radius, float r, float g, float b, float a)
 {
     setColor(r,g,b,a);

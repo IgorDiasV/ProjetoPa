@@ -1,6 +1,19 @@
 #include "putbox.h"
 
-//pinta uma caixa tendo como parâmetros os pontos abaixo
+/**
+ * @brief PutBox::PutBox
+ * Desenha uma caixa tendo como parâmetros os pontos abaixo.
+ * @param x0: ponto inicial no eixo x.
+ * @param x1: ponto final no eixo x.
+ * @param y0: ponto inicial no eixo y.
+ * @param y1: ponto final no eixo y.
+ * @param z0: ponto inicial no eixo z.
+ * @param z1: ponto final no eixo z.
+ * @param r: nível de vermelho.
+ * @param g: nível de verde.
+ * @param b: nível de azul.
+ * @param a: transparência.
+ */
 PutBox::PutBox(int x0, int x1, int y0, int y1, int z0, int z1, float r, float g, float b, float a)
 {
     setColor(r,g,b,a);

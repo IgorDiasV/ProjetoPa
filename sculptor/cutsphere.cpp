@@ -1,7 +1,14 @@
 #include "cutsphere.h"
 #include <cmath>
 
-//corta uma esfera, tendo como parâmetro o centro e o raio
+/**
+ * @brief CutSphere::CutSphere
+ * Apaga uma esfera, tendo como parâmetro o centro e o raio.
+ * @param xcenter: centro da esfera no eixo x.
+ * @param ycenter: centro da esfera no eixo y.
+ * @param zcenter: centro da esfera no eixo z.
+ * @param radius: raio da esfera.
+ */
 CutSphere::CutSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
     this->xcenter=xcenter;

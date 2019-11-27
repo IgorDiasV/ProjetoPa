@@ -3,20 +3,16 @@
 #include <string>
 #include <fstream>
 #include <cmath>
-//Voxel ***v;
+
+Sculptor::Sculptor(){}
 
 /**
- * @brief Sculptor::Sculptor - método construtor que aloca uma matriz tridimensional de tamanho nx por ny por nz
- * @param _nx - parêmetro que se refere a altura
- * @param _ny - parêmetro que se refere a largura
- * @param _nz - parêmetro que se refere a profundidade
+ * @brief Sculptor::Sculptor
+ * Método construtor que aloca uma matriz tridimensional de tamanho nx x ny x nz.
+ * @param _nx: parêmetro que se refere a altura
+ * @param _ny: parêmetro que se refere a largura
+ * @param _nz: parêmetro que se refere a profundidade
  */
-
-Sculptor::Sculptor()
-{
-
-}
-
 Sculptor::Sculptor(int _nx, int _ny, int _nz)
 {
     nx=_nx;
@@ -40,14 +36,13 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
             }
         }
     }
-
 }
 
 
 /**
- * @brief Sculptor::~Sculptor - método destrutor que libera a memória da matriz tridimensional alocada
+ * @brief Sculptor::~Sculptor
+ * Método destrutor que libera a memória da matriz tridimensional alocada.
  */
-
 Sculptor::~Sculptor(){
     delete [] **v;
     delete [] *v;
@@ -55,13 +50,13 @@ Sculptor::~Sculptor(){
 }
 
 /**
- * @brief Sculptor::setColor - define uma cor para sua escultura. As cores são normalizadas entre 0 e 1
- * @param r - se refere a quantidade de vermelho
- * @param g - se refere a quantidade de verde
- * @param b - se refere a quantidade de azul
- * @param alpha - se refere a transparencia. 1 é totalmente opaco e 0 e totalmente transparente
+ * @brief Sculptor::setColor
+ * Define uma cor para sua figura. As cores são normalizadas entre 0 e 1.
+ * @param r: nível de vermelho.
+ * @param g: nível de verde.
+ * @param b: nível de azul.
+ * @param alpha: se refere a transparencia. 1 é totalmente opaco e 0 e totalmente transparente.
  */
-
 void Sculptor::setColor(float r=0, float g=0, float b=0, float alpha=1){
     this->r=r;
     this->g=g;
@@ -70,12 +65,12 @@ void Sculptor::setColor(float r=0, float g=0, float b=0, float alpha=1){
 }
 
 /**
- * @brief Sculptor::putVoxel - desenha um voxel e um lugar especifico da matriz
- * @param x - parâmetro de altura em relação a origem
- * @param y - parâmetro de largura em relação a origem
- * @param z - parâmetro de profundidade em relação a origem
+ * @brief Sculptor::putVoxel
+ * Desenha um voxel e um lugar especifico da matriz.
+ * @param x: parâmetro de altura em relação a origem.
+ * @param y: parâmetro de largura em relação a origem.
+ * @param z: parâmetro de profundidade em relação a origem.
  */
-
 void Sculptor:: putVoxel(int x, int y, int z)
 {
     if(x<nx && y<ny && z<nz && x>=0 && y>=0 && z>=0){
@@ -88,12 +83,12 @@ void Sculptor:: putVoxel(int x, int y, int z)
 }
 
 /**
- * @brief Sculptor::cutVoxel - apaga um voxel em um lugar específica da matriz
- * @param x - parâmetro de altura em relação a origem
- * @param y - parâmetro de largura em relação a origem
- * @param z - parâmetro de profundidade em relação a origem
+ * @brief Sculptor::cutVoxel
+ * Apaga um voxel em um lugar específica da matriz.
+ * @param x: parâmetro de altura em relação a origem.
+ * @param y: parâmetro de largura em relação a origem.
+ * @param z: parâmetro de profundidade em relação a origem.
  */
-
 void Sculptor:: cutVoxel(int x, int y, int z)
 {
     if(x<nx && y<ny && z<nz && x>=0 && y>=0 && z>=0){
@@ -102,9 +97,9 @@ void Sculptor:: cutVoxel(int x, int y, int z)
 }
 
 /**
- * @brief Sculptor::writeOFF - método que escreve todas informações de vertice, faces, cor necessários para um arquivo .off,
- * que será lido pelo programa
- * @param fillename - nome do arquivo
+ * @brief Sculptor::writeOFF
+ * Método que escreve todas informações de vertice, faces, cor necessários para um arquivo .off,que será lido pelo programa
+ * @param fillename:nome do arquivo
  */
 void Sculptor::writeOFF(string fillename)
 {
@@ -177,22 +172,34 @@ void Sculptor::writeOFF(string fillename)
     }
     fout.close();
 }
-//verifica se um voxel está ligado
+/**
+ * @brief Sculptor::getisOn
+ * Verifica se um voxel está ligado.
+ */
 bool Sculptor::getisOn(int x,int y,int z)
 {
     return v[z][x][y].isOn;
 }
-
+/**
+ * @brief Sculptor::getR
+ * Atribui a cor vermelha a um voxel.
+ */
 float Sculptor::getR(int i, int j, int k)
 {
     return v[k][i][j].r;
 }
-
+/**
+ * @brief Sculptor::getG
+ * Atribui a cor verde a um voxel.
+ */
 float Sculptor::getG(int i, int j, int k)
 {
     return v[k][i][j].g;
 }
-
+/**
+ * @brief Sculptor::getB
+ * Atribui a cor azul a um voxel.
+ */
 float Sculptor::getB(int i, int j, int k)
 {
     return v[k][i][j].b;

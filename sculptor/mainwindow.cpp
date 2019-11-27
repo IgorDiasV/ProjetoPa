@@ -18,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->showMaximized();
-    //connect(ui->botaoNew,&QPushButton::clicked,this,&MainWindow::novoProjeto);
     connect(ui->botaoCores,&QPushButton::clicked,this,&MainWindow::cores);
 
     /* *******************  para esfera  ************************ */
@@ -61,7 +60,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->Button_putellipsoid, &QPushButton::clicked, ui->widget, &Plotter::mudarParaPutellipsoid);
     connect(ui->Button_cutellipsoid, &QPushButton::clicked, ui->widget, &Plotter::mudarParaCutellipsoid);
 
-    /* ************************************************************************** */
+    /*************************************************************************** */
     connect(ui->checkBox,&QCheckBox::stateChanged,this,&MainWindow::mudarVisibilidade);
 
     /*******************************************************************/
@@ -71,7 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->sliderG,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
     connect(ui->sliderB,SIGNAL(valueChanged(int)),this,SLOT(corSlider()));
 
-    /*****************  hover ************************************* */
+    /*****************  focus ************************************* */
     ui->Button_cutbox->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
     ui->Button_putbox->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
     ui->Button_cutvoxel->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
@@ -82,61 +81,99 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Button_putellipsoid->setStyleSheet("QPushButton:focus {border: 3px dashed black}");
 }
 
-//função que conecta a interface ao widget
-//passa como parâmetro o valor atual do sliderZ
+/**
+ * @brief MainWindow::mudarPlanoZ
+ * Função que conecta a interface ao widget.
+ * Passa como parâmetro o valor atual do sliderZ.
+ * @param z: coordena z do plano atual
+ */
 void MainWindow:: mudarPlanoZ(int z)
 {
     ui->widget->planoAtualZ(z);
 }
-//função que conecta a interface ao widget
-//passa como parâmetro o valor do raio da esfera
+/**
+ * @brief MainWindow::mudarRaioEsfera
+ * Função que conecta a interface ao widget
+ * Passa como parâmetro o valor do raio da esfera
+ * @param r: raio da esfera atual
+ */
 void MainWindow::mudarRaioEsfera(int r)
 {
     ui->widget->mudarRaioEsfera(r);
 
 }
-//função que conecta a interface ao widget
-//passa como parâmetro o valor do dimensão x da caixa
+/**
+ * @brief MainWindow::mudarDimBoX
+ * Função que conecta a interface ao widget
+ * Passa como parâmetro o valor do dimensão x da caixa
+ * @param dimx: dimensão x atual da caixa.
+ */
 void MainWindow::mudarDimBoX(int dimx)
 {
     ui->widget->mudarDimBoX(dimx);
 }
-//função que conecta a interface ao widget
-//passa como parâmetro o valor do dimensão y da caixa
+/**
+ * @brief MainWindow::mudarDimBoY
+ * Função que conecta a interface ao widget
+ * Passa como parâmetro o valor do dimensão y da caixa
+ * @param dimy: dimensão y atual da caixa.
+ */
 void MainWindow::mudarDimBoY(int dimy)
 {
     ui->widget->mudarDimBoY(dimy);
 }
-//função que conecta a interface ao widget
-//passa como parâmetro o valor do dimensão z da caixa
+/**
+ * @brief MainWindow::mudarDimBoZ
+ * Função que conecta a interface ao widget
+ * Passa como parâmetro o valor do dimensão z da caixa
+ * @param dimz: dimensão z atual da caixa.
+ */
 void MainWindow::mudarDimBoZ(int dimz)
 {
     ui->widget->mudarDimBoZ(dimz);
 }
-//função que conecta a interface ao widget
-//passa como parâmetro o valor do raio x do elipsóide
+/**
+ * @brief MainWindow::mudarRaioX
+ * Função que conecta a interface ao widget
+ * Passa como parâmetro o valor do raio x do elipsóide
+ * @param rx: raio atual no eixo x.
+ */
 void MainWindow::mudarRaioX(int rx)
 {
     ui->widget->mudarRaioX(rx);
 }
-//função que conecta a interface ao widget
-//passa como parâmetro o valor do raio y do elipsóide
+/**
+ * @brief MainWindow::mudarRaioY
+ * Função que conecta a interface ao widget
+ * Passa como parâmetro o valor do raio y do elipsóide
+ * @param ry: raio atual no eixo y.
+ */
 void MainWindow::mudarRaioY(int ry)
 {
     ui->widget->mudarRaioY(ry);
 }
-//função que conecta a interface ao widget
-//passa como parâmetro o valor do raio z do elipsóide
+/**
+ * @brief MainWindow::mudarRaioZ
+ *Função que conecta a interface ao widget
+ *Passa como parâmetro o valor do raio z do elipsóide
+ * @param rz: raio atual no eixo z.
+ */
 void MainWindow::mudarRaioZ(int rz)
 {
     ui->widget->mudarRaioZ(rz);
 }
-//destrutor da classe mainwindow
+/**
+ * @brief MainWindow::~MainWindow
+ * Destrutor da classe.
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-//define a posição dos slides de cor para a cor atual
+/**
+ * @brief MainWindow::cores
+ * Define a posição dos slides de cor para a cor atual.
+ */
 void MainWindow::cores()
 {
     QColor p=QColorDialog::getColor(Qt::white,this,"Escolha uma cor");
@@ -155,7 +192,10 @@ void MainWindow::cores()
     ui->sliderB->setValue(p.blue());
 
 }
-//conecta o checkbox ao widget para mudar o modo de visualização do plotter
+/**
+ * @brief MainWindow::mudarVisibilidade
+ * Conecta o checkbox ao widget para mudar o modo de visualização do plotter.
+ */
 void MainWindow::mudarVisibilidade()
 {
     ui->widget->visibilidadeDaGrade(ui->checkBox->isChecked());
@@ -176,7 +216,10 @@ void MainWindow::corSlider()
     ui->lcdNumber_2->display(ui->sliderG->value());
     ui->lcdNumber_3->display(ui->sliderB->value());
 }
-//abre o projeto já existente
+/**
+ * @brief MainWindow::on_actionAbrir_Projeto_triggered
+ * Abre o projeto já existente.
+ */
 void MainWindow::on_actionAbrir_Projeto_triggered()
 {
     QString nomeDoArquivo=QFileDialog::getOpenFileName();
@@ -186,7 +229,10 @@ void MainWindow::on_actionAbrir_Projeto_triggered()
     ui->sliderPlanoZ->setMaximum(ui->widget->getDz()-1);
     ui->sliderPlanoZ->setValue(0);
 }
-//salva o projeto atual
+/**
+ * @brief MainWindow::on_actionSalvar_Projeto_triggered
+ * Salva o projeto atual.
+ */
 void MainWindow::on_actionSalvar_Projeto_triggered()
 {
     QString nomeDoArquivo=QFileDialog::getSaveFileName();
@@ -194,7 +240,10 @@ void MainWindow::on_actionSalvar_Projeto_triggered()
         ui->widget->salvarProjeto(nomeDoArquivo.toStdString());
     }
 }
-//exporta o projeto como arquivo .off, não podendo mais ser editado
+/**
+ * @brief MainWindow::on_actionExportar_Projeto_triggered
+ * Exporta o projeto como arquivo .off, não podendo mais ser editado.
+ */
 void MainWindow::on_actionExportar_Projeto_triggered()
 {
     QString nomeDoArquivo=QFileDialog::getSaveFileName();
@@ -202,7 +251,10 @@ void MainWindow::on_actionExportar_Projeto_triggered()
         ui->widget->exportarProjeto(nomeDoArquivo.toStdString());
     }
 }
-//cria um novo projeto
+/**
+ * @brief MainWindow::on_actionNovo_Projeto_triggered
+ * Cria um novo projeto.
+ */
 void MainWindow::on_actionNovo_Projeto_triggered()
 {
     DefinirSculptor janela;
@@ -211,16 +263,7 @@ void MainWindow::on_actionNovo_Projeto_triggered()
         tx=janela.getX();
         ty=janela.getY();
         tz=janela.getZ();
-        //matriz=new Sculptor(tx,ty,tz);
         ui->widget->mudarTamanho(tx,ty,tz); //redimensiona o widget
         ui->sliderPlanoZ->setMaximum(tz-1);
-        /*
-        ui->sliderEsfera->setMaximum(tx);
-        ui->SliderRx->setMaximum(tx);
-        ui->SliderRy->setMaximum(tx);
-        ui->SliderRz->setMaximum(tx);
-        ui->SliderDimX->setMaximum(tx);
-        ui->SliderDimY->setMaximum(tx);
-        ui->SliderDimZ->setMaximum(tx);*/
     }
 }
