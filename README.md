@@ -26,7 +26,7 @@ https://igordiasv.github.io/Documentacao/inherits.html
 
 <img src="img/telaEsfRed.png"><img>
 
-<p>visualização 3D da figura
+<p>visualização 3D da figura.
   
 <img src="img/3dEsfRed.png"><img>
 
